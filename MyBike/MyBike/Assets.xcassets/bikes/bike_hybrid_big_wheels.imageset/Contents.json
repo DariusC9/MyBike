@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "bike_hybrid_big_wheels.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

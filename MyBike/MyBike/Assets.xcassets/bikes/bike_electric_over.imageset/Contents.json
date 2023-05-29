@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "bike_electric_over.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
