@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CustomTabBar: View {
     
+    @State private var selectedTab = 0
+    
     init() {
         UITabBar.appearance().backgroundColor = UIColor(Color("appCloudBurst"))
         UITabBar.appearance().isTranslucent = false
@@ -16,30 +18,46 @@ struct CustomTabBar: View {
     }
     
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             Text("Bikes")
                 .tabItem {
-                    Image("icon_bikes_inactive")
+                    if selectedTab == 0 {
+                        Image("icon_bikes_active")
+                    } else {
+                        Image("icon_bikes_inactive")
+                    }
                     Text("Bikes")
                         .font(.system(size: 11,
                                       weight: .semibold))
                 }
+                .tag(0)
             Text("Rides")
                 .tabItem {
-                    Image("rides_inactive")
+                    if selectedTab == 1 {
+                        Image("rides_active")
+                    } else {
+                        Image("rides_inactive")
+                    }
                     Text("Rides")
                         .font(.system(size: 11,
                                       weight: .semibold))
                 }
+                .tag(1)
             Text("Settings")
                 .tabItem {
-                    Image("settings_inactive")
+                    if selectedTab == 2 {
+                        Image("settings_active")
+                    } else {
+                        Image("settings_inactive")
+                    }
                     Text("Settings")
                         .font(.system(size: 11,
                                       weight: .semibold))
                 }
+                .tag(2)
         }
         .offset(y: 50)
+        .accentColor(Color("appBlueRibbon"))
     }
 }
 
