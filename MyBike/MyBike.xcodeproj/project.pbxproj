@@ -16,6 +16,7 @@
 		809A16BB2A2525F4006BFE2E /* MyBikeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16BA2A2525F4006BFE2E /* MyBikeTests.swift */; };
 		809A16C52A2525F4006BFE2E /* MyBikeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16C42A2525F4006BFE2E /* MyBikeUITests.swift */; };
 		809A16C72A2525F4006BFE2E /* MyBikeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16C62A2525F4006BFE2E /* MyBikeUITestsLaunchTests.swift */; };
+		80A8CEBB2A25D6C2004A1DF3 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A8CEBA2A25D6C2004A1DF3 /* CustomTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		809A16C02A2525F4006BFE2E /* MyBikeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBikeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		809A16C42A2525F4006BFE2E /* MyBikeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeUITests.swift; sourceTree = "<group>"; };
 		809A16C62A2525F4006BFE2E /* MyBikeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		80A8CEBA2A25D6C2004A1DF3 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			children = (
 				809A16A42A2525F3006BFE2E /* MyBikeApp.swift */,
 				809A16A62A2525F3006BFE2E /* ContentView.swift */,
+				80A8CEBA2A25D6C2004A1DF3 /* CustomTabBar.swift */,
 				809A16A82A2525F4006BFE2E /* Assets.xcassets */,
 				809A16AD2A2525F4006BFE2E /* Persistence.swift */,
 				809A16AF2A2525F4006BFE2E /* MyBike.xcdatamodeld */,
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				809A16B12A2525F4006BFE2E /* MyBike.xcdatamodeld in Sources */,
+				80A8CEBB2A25D6C2004A1DF3 /* CustomTabBar.swift in Sources */,
 				809A16AE2A2525F4006BFE2E /* Persistence.swift in Sources */,
 				809A16A72A2525F3006BFE2E /* ContentView.swift in Sources */,
 				809A16A52A2525F3006BFE2E /* MyBikeApp.swift in Sources */,
