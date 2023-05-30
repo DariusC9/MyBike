@@ -8,60 +8,38 @@
 import SwiftUI
 
 struct CustomTabBar: View {
+    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(Color("appCloudBurst"))
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().unselectedItemTintColor = .white
+    }
+    
     var body: some View {
-        
-        HStack {
-        
-            
-            Button {
-                // goes to BikesVC
-            } label: {
-                VStack(alignment: .center, spacing: 2) {
+        TabView {
+            Text("Bikes")
+                .tabItem {
                     Image("icon_bikes_inactive")
                     Text("Bikes")
                         .font(.system(size: 11,
                                       weight: .semibold))
-                        .foregroundColor(.white)
                 }
-            }
-            .padding(.vertical, -20)
-            
-            Spacer()
-            
-            Button {
-                // goes to BikesVC
-            } label: {
-                VStack(alignment: .center, spacing: 2) {
+            Text("Rides")
+                .tabItem {
                     Image("rides_inactive")
                     Text("Rides")
                         .font(.system(size: 11,
                                       weight: .semibold))
-                        .foregroundColor(.white)
                 }
-            }
-            .padding(.vertical, -20)
-            
-            Spacer()
-            
-            Button {
-                // goes to BikesVC
-            } label: {
-                VStack(alignment: .center, spacing: 2) {
+            Text("Settings")
+                .tabItem {
                     Image("settings_inactive")
                     Text("Settings")
                         .font(.system(size: 11,
                                       weight: .semibold))
-                        .foregroundColor(.white)
                 }
-            }
-            .padding(.vertical, -20)
-            
-
-            
         }
-        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-        .frame(height: 55)
-        .background(Color("appCloudBurst"))
+        .offset(y: 50)
     }
 }
 
