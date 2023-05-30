@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8080FC742A264EA900143DA7 /* BikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080FC732A264EA900143DA7 /* BikeCell.swift */; };
+		8080FC762A267F4400143DA7 /* BikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080FC752A267F4400143DA7 /* BikeViewModel.swift */; };
 		809A16A52A2525F3006BFE2E /* MyBikeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16A42A2525F3006BFE2E /* MyBikeApp.swift */; };
 		809A16A72A2525F3006BFE2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16A62A2525F3006BFE2E /* ContentView.swift */; };
 		809A16A92A2525F4006BFE2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 809A16A82A2525F4006BFE2E /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8080FC732A264EA900143DA7 /* BikeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeCell.swift; sourceTree = "<group>"; };
+		8080FC752A267F4400143DA7 /* BikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeViewModel.swift; sourceTree = "<group>"; };
 		809A16A12A2525F3006BFE2E /* MyBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		809A16A42A2525F3006BFE2E /* MyBikeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeApp.swift; sourceTree = "<group>"; };
 		809A16A62A2525F3006BFE2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,10 +107,12 @@
 				809A16A42A2525F3006BFE2E /* MyBikeApp.swift */,
 				809A16A62A2525F3006BFE2E /* ContentView.swift */,
 				80A8CEBA2A25D6C2004A1DF3 /* CustomTabBar.swift */,
+				8080FC732A264EA900143DA7 /* BikeCell.swift */,
 				809A16A82A2525F4006BFE2E /* Assets.xcassets */,
 				809A16AD2A2525F4006BFE2E /* Persistence.swift */,
 				809A16AF2A2525F4006BFE2E /* MyBike.xcdatamodeld */,
 				809A16AA2A2525F4006BFE2E /* Preview Content */,
+				8080FC752A267F4400143DA7 /* BikeViewModel.swift */,
 			);
 			path = MyBike;
 			sourceTree = "<group>";
@@ -270,6 +276,8 @@
 				80A8CEBB2A25D6C2004A1DF3 /* CustomTabBar.swift in Sources */,
 				809A16AE2A2525F4006BFE2E /* Persistence.swift in Sources */,
 				809A16A72A2525F3006BFE2E /* ContentView.swift in Sources */,
+				8080FC742A264EA900143DA7 /* BikeCell.swift in Sources */,
+				8080FC762A267F4400143DA7 /* BikeViewModel.swift in Sources */,
 				809A16A52A2525F3006BFE2E /* MyBikeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

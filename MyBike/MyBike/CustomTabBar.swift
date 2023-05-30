@@ -57,7 +57,7 @@ struct CustomTabBar: View {
                 .tag(2)
         }
         .offset(y: 50)
-        .accentColor(Color("appBlueRibbon"))
+        .accentColor(.blue)
     }
 }
 
