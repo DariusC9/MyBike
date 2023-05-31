@@ -27,8 +27,7 @@ struct CustomTabBar: View {
                         Image("icon_bikes_inactive")
                     }
                     Text("Bikes")
-                        .font(.system(size: 11,
-                                      weight: .semibold))
+                        .font(Fonts.tabBar)
                 }
                 .tag(0)
             Text("Rides")
@@ -39,8 +38,7 @@ struct CustomTabBar: View {
                         Image("rides_inactive")
                     }
                     Text("Rides")
-                        .font(.system(size: 11,
-                                      weight: .semibold))
+                        .font(Fonts.tabBar)
                 }
                 .tag(1)
             Text("Settings")
@@ -51,8 +49,7 @@ struct CustomTabBar: View {
                         Image("settings_inactive")
                     }
                     Text("Settings")
-                        .font(.system(size: 11,
-                                      weight: .semibold))
+                        .font(Fonts.tabBar)
                 }
                 .tag(2)
         }

@@ -19,6 +19,7 @@
 		809A16C52A2525F4006BFE2E /* MyBikeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16C42A2525F4006BFE2E /* MyBikeUITests.swift */; };
 		809A16C72A2525F4006BFE2E /* MyBikeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16C62A2525F4006BFE2E /* MyBikeUITestsLaunchTests.swift */; };
 		80A5D7872A272F0800421F35 /* EmptyBikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A5D7862A272F0800421F35 /* EmptyBikeView.swift */; };
+		80A5D7892A27648C00421F35 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A5D7882A27648C00421F35 /* Fonts.swift */; };
 		80A8CEBB2A25D6C2004A1DF3 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A8CEBA2A25D6C2004A1DF3 /* CustomTabBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		809A16C42A2525F4006BFE2E /* MyBikeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeUITests.swift; sourceTree = "<group>"; };
 		809A16C62A2525F4006BFE2E /* MyBikeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		80A5D7862A272F0800421F35 /* EmptyBikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyBikeView.swift; sourceTree = "<group>"; };
+		80A5D7882A27648C00421F35 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		80A8CEBA2A25D6C2004A1DF3 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 				8080FC732A264EA900143DA7 /* BikeCell.swift */,
 				8080FC752A267F4400143DA7 /* BikeViewModel.swift */,
 				80A5D7862A272F0800421F35 /* EmptyBikeView.swift */,
+				80A5D7882A27648C00421F35 /* Fonts.swift */,
 				809A16A82A2525F4006BFE2E /* Assets.xcassets */,
 				809A16AD2A2525F4006BFE2E /* Persistence.swift */,
 				809A16AF2A2525F4006BFE2E /* MyBike.xcdatamodeld */,
@@ -282,6 +285,7 @@
 				809A16A72A2525F3006BFE2E /* ContentView.swift in Sources */,
 				8080FC742A264EA900143DA7 /* BikeCell.swift in Sources */,
 				8080FC762A267F4400143DA7 /* BikeViewModel.swift in Sources */,
+				80A5D7892A27648C00421F35 /* Fonts.swift in Sources */,
 				809A16A52A2525F3006BFE2E /* MyBikeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

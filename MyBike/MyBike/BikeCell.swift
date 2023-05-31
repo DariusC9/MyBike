@@ -30,8 +30,11 @@ struct BikeCell: View {
                 HStack {
                     VStack(alignment: .leading) {
                         Text("Name: \(viewModel.name)")
+                            .font(Fonts.rideTitle)
                         Text("Wheels: \(viewModel.wheelSize)\"")
+                            .font(Fonts.labelTextRide)
                         Text("Service in: \(viewModel.distance)km")
+                            .font(Fonts.labelTextRide)
                     }
                     .foregroundColor(.white)
                     .padding(.top, 20)

@@ -49,6 +49,7 @@ struct EmptyBikeView: View {
         service cycles up to date.
         """)
                             .multilineTextAlignment(.center)
+                            .font(Fonts.buttonText)
                             .foregroundColor(.white)
                             .padding()
                             Spacer()
@@ -62,7 +63,7 @@ struct EmptyBikeView: View {
                         }) {
                             Text("Add Car")
                                 .foregroundColor(.white)
-                                .font(.headline)
+                                .font(Fonts.buttonText)
                                 .padding(.horizontal, 5)
                                 .frame(maxWidth: .infinity, minHeight: 44)
                                 .background(Color.blue)
