@@ -108,11 +108,11 @@
 				809A16A62A2525F3006BFE2E /* ContentView.swift */,
 				80A8CEBA2A25D6C2004A1DF3 /* CustomTabBar.swift */,
 				8080FC732A264EA900143DA7 /* BikeCell.swift */,
+				8080FC752A267F4400143DA7 /* BikeViewModel.swift */,
 				809A16A82A2525F4006BFE2E /* Assets.xcassets */,
 				809A16AD2A2525F4006BFE2E /* Persistence.swift */,
 				809A16AF2A2525F4006BFE2E /* MyBike.xcdatamodeld */,
 				809A16AA2A2525F4006BFE2E /* Preview Content */,
-				8080FC752A267F4400143DA7 /* BikeViewModel.swift */,
 			);
 			path = MyBike;
 			sourceTree = "<group>";

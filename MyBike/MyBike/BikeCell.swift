@@ -11,8 +11,11 @@ struct BikeCell: View {
     let viewModel: BikeViewModel = .empty()
     
     var body: some View {
+        
         ZStack{
             Image("no_bike_background")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
             VStack {
                 ZStack {
                     Image(viewModel.bikeImages.topImageName)
@@ -23,7 +26,7 @@ struct BikeCell: View {
                                 .scaleEffect(1.75)
 
                 }
-                .offset(y: 15)
+                
                 HStack {
                     VStack(alignment: .leading) {
                         Text("Name: \(viewModel.name)")
@@ -35,8 +38,30 @@ struct BikeCell: View {
                     Spacer()
                 }
                 .padding()
+                
+                ZStack(alignment: .leading) {
+                    Image("loading_bar")
+                        .resizable()
+                        .frame(width: 350, height: 4)
+                    Image("loading_over")
+                        .resizable()
+                        .frame(width: 230, height: 4)
+                    Image("loading_circle")
+                        
+                    Image("loading_bolt")
+                        .offset(x: 350)
+                    Image("loading_wrench")
+                        .offset(x: 230)
+                }
             }
-            .padding(10)
+            .alignmentGuide(.top) { _ in
+                UIScreen.main.bounds.size.height / 2
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .overlay(
+                Color.clear
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+           )
         }
         
     }
