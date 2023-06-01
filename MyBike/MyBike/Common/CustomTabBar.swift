@@ -12,14 +12,20 @@ struct CustomTabBar: View {
     @State private var selectedTab = 0
     
     init() {
-        UITabBar.appearance().backgroundColor = UIColor(Color("appCloudBurst"))
         UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().unselectedItemTintColor = .white
+        UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance.init(idiom: .unspecified)
+        UITabBar.appearance().backgroundColor = UIColor(Color("appCloudBurst"))
+        
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground()
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
     }
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            Text("Bikes")
+            BikeContentView(viewModel: BikeContentViewModel())
                 .tabItem {
                     if selectedTab == 0 {
                         Image("icon_bikes_active")

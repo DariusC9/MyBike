@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct BikeCell: View {
-    let model: BikeModel = .empty()
+    let model: BikeModel 
     
     var body: some View {
         
         ZStack{
             Image("no_bike_background")
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill)
             VStack {
                 ZStack {
                     Image(model.bikeImages.topImageName)
@@ -58,21 +58,13 @@ struct BikeCell: View {
                 }
                 .padding(.top, 20)
             }
-            .alignmentGuide(.top) { _ in
-                UIScreen.main.bounds.size.height / 2
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .overlay(
-                Color.clear
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-           )
         }
         
     }
     
     struct BikeCell_Previews: PreviewProvider {
         static var previews: some View {
-            BikeCell()
+            BikeCell(model: .testBike()).frame(width: 150, height: 150)
         }
     }
     
