@@ -15,29 +15,12 @@ struct EmptyBikeView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .padding(.horizontal, 5)
-                    
-            
-            
                 ZStack(alignment: .leading) {
                     Image("dotted_line")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 20)
-//                        .overlay(
-//                                    Text("""
-//                                        You don't have any bike added yet.
-//                                        Add your first bike and start register
-//                                        your rides in order to keep your bike
-//                                        service cycles up to date.
-//                                        """)
-//                                        .multilineTextAlignment(.center)
-//                                        .padding(.horizontal, 20)
-//                                        .background(Color.black)
-//                                        .opacity(1)
-//                                        .foregroundColor(.white)
-//                                        .cornerRadius(10)
-//                                    )
                     VStack {
                         Spacer()
                         HStack {
@@ -49,6 +32,7 @@ struct EmptyBikeView: View {
         service cycles up to date.
         """)
                             .multilineTextAlignment(.center)
+                            .font(Fonts.buttonText)
                             .foregroundColor(.white)
                             .padding()
                             Spacer()
@@ -62,7 +46,7 @@ struct EmptyBikeView: View {
                         }) {
                             Text("Add Car")
                                 .foregroundColor(.white)
-                                .font(.headline)
+                                .font(Fonts.buttonText)
                                 .padding(.horizontal, 5)
                                 .frame(maxWidth: .infinity, minHeight: 44)
                                 .background(Color.blue)

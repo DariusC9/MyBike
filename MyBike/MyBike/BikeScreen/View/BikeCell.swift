@@ -24,20 +24,23 @@ struct BikeCell: View {
                                 .scaleEffect(1.75)
                     Image(model.bikeImages.wheelImageName)
                                 .scaleEffect(1.75)
-
                 }
+                .padding(.top, 30)
                 
                 HStack {
                     VStack(alignment: .leading) {
                         Text("Name: \(model.name)")
+                            .font(Fonts.rideTitle)
                         Text("Wheels: \(model.wheelSize)\"")
+                            .font(Fonts.labelTextRide)
                         Text("Service in: \(model.distance)km")
+                            .font(Fonts.labelTextRide)
                     }
                     .foregroundColor(.white)
                     .padding(.top, 20)
                     Spacer()
                 }
-                .padding()
+                .padding(.leading, 20)
                 
                 ZStack(alignment: .leading) {
                     Image("loading_bar")
@@ -53,6 +56,7 @@ struct BikeCell: View {
                     Image("loading_wrench")
                         .offset(x: 230)
                 }
+                .padding(.top, 20)
             }
             .alignmentGuide(.top) { _ in
                 UIScreen.main.bounds.size.height / 2
