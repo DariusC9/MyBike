@@ -45,7 +45,7 @@ struct EmptyBikeView: View {
                     Button(action: {
                         // TODO: Add action
                     }) {
-                        Text("Add Car")
+                        Text("Add Bike")
                             .foregroundColor(.white)
                             .font(Fonts.buttonText)
                             .padding(.horizontal, 5)

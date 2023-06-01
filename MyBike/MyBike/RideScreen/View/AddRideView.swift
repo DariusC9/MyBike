@@ -19,7 +19,7 @@ struct AddRideView: View {
         ZStack {
             Color("appCloudBurst")
                 .ignoresSafeArea()
-            VStack(alignment: .center, spacing: 20){
+            VStack(spacing: 20) {
                 AddBikeCell(subTitle: "Ride Title", textFieldBind: $textFieldTitle)
                 AddBikeCell(subTitle: "Bike", textFieldBind: $textFieldBike)
                 AddBikeCell(subTitle: "Distance", textFieldBind: $textFieldDistance)
