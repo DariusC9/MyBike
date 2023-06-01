@@ -110,14 +110,12 @@
 		809A16A32A2525F3006BFE2E /* MyBike */ = {
 			isa = PBXGroup;
 			children = (
+				80A894BF2A286D8900C2EB84 /* Common */,
+				80A894BB2A286D3E00C2EB84 /* SettingsScreen */,
+				80A894BA2A286D3600C2EB84 /* RideScreen */,
+				80A894B92A286D2B00C2EB84 /* BikeScreen */,
 				809A16A42A2525F3006BFE2E /* MyBikeApp.swift */,
 				809A16A62A2525F3006BFE2E /* ContentView.swift */,
-				80A8CEBA2A25D6C2004A1DF3 /* CustomTabBar.swift */,
-				8080FC732A264EA900143DA7 /* BikeCell.swift */,
-				8080FC752A267F4400143DA7 /* BikeViewModel.swift */,
-				80A5D7862A272F0800421F35 /* EmptyBikeView.swift */,
-				80A5D78A2A27794B00421F35 /* EmptyRideView.swift */,
-				80A5D78C2A27872000421F35 /* AddRideView.swift */,
 				809A16A82A2525F4006BFE2E /* Assets.xcassets */,
 				809A16AD2A2525F4006BFE2E /* Persistence.swift */,
 				809A16AF2A2525F4006BFE2E /* MyBike.xcdatamodeld */,
@@ -149,6 +147,72 @@
 				809A16C62A2525F4006BFE2E /* MyBikeUITestsLaunchTests.swift */,
 			);
 			path = MyBikeUITests;
+			sourceTree = "<group>";
+		};
+		80A894B92A286D2B00C2EB84 /* BikeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				80A894C02A286E0000C2EB84 /* Model */,
+				80A894BC2A286D4B00C2EB84 /* View */,
+			);
+			path = BikeScreen;
+			sourceTree = "<group>";
+		};
+		80A894BA2A286D3600C2EB84 /* RideScreen */ = {
+			isa = PBXGroup;
+			children = (
+				80A894BD2A286D5100C2EB84 /* View */,
+			);
+			path = RideScreen;
+			sourceTree = "<group>";
+		};
+		80A894BB2A286D3E00C2EB84 /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				80A894BE2A286D5700C2EB84 /* View */,
+			);
+			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
+		80A894BC2A286D4B00C2EB84 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8080FC732A264EA900143DA7 /* BikeCell.swift */,
+				80A5D7862A272F0800421F35 /* EmptyBikeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		80A894BD2A286D5100C2EB84 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				80A5D78A2A27794B00421F35 /* EmptyRideView.swift */,
+				80A5D78C2A27872000421F35 /* AddRideView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		80A894BE2A286D5700C2EB84 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		80A894BF2A286D8900C2EB84 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				80A8CEBA2A25D6C2004A1DF3 /* CustomTabBar.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		80A894C02A286E0000C2EB84 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8080FC752A267F4400143DA7 /* BikeViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

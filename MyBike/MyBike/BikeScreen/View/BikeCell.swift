@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BikeCell: View {
-    let viewModel: BikeViewModel = .empty()
+    let model: BikeModel = .empty()
     
     var body: some View {
         
@@ -18,20 +18,20 @@ struct BikeCell: View {
                 .aspectRatio(contentMode: .fit)
             VStack {
                 ZStack {
-                    Image(viewModel.bikeImages.topImageName)
+                    Image(model.bikeImages.topImageName)
                                 .scaleEffect(1.75)
-                    Image(viewModel.bikeImages.middleImageName)
+                    Image(model.bikeImages.middleImageName)
                                 .scaleEffect(1.75)
-                    Image(viewModel.bikeImages.wheelImageName)
+                    Image(model.bikeImages.wheelImageName)
                                 .scaleEffect(1.75)
 
                 }
                 
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("Name: \(viewModel.name)")
-                        Text("Wheels: \(viewModel.wheelSize)\"")
-                        Text("Service in: \(viewModel.distance)km")
+                        Text("Name: \(model.name)")
+                        Text("Wheels: \(model.wheelSize)\"")
+                        Text("Service in: \(model.distance)km")
                     }
                     .foregroundColor(.white)
                     .padding(.top, 20)
