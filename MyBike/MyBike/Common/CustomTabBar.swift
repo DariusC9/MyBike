@@ -47,7 +47,7 @@ struct CustomTabBar: View {
                         .font(Fonts.tabBar)
                 }
                 .tag(1)
-            Text("Settings")
+            SettingsView()
                 .tabItem {
                     if selectedTab == 2 {
                         Image("settings_active")

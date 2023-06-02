@@ -16,9 +16,7 @@ struct AddRideView: View {
     @State var textFieldDate: String = ""
     
     var body: some View {
-        ZStack {
-            Color("appCloudBurst")
-                .ignoresSafeArea()
+
             VStack(spacing: 20) {
                 AddBikeCell(subTitle: "Ride Title", textFieldBind: $textFieldTitle)
                 AddBikeCell(subTitle: "Bike", textFieldBind: $textFieldBike)
@@ -30,7 +28,7 @@ struct AddRideView: View {
                 }) {
                     Text("Add Ride")
                         .foregroundColor(.white)
-                        .font(.headline)
+                        .font(Fonts.buttonText)
                         .frame(maxWidth: .infinity, minHeight: 35)
                         .background(Color.blue)
                         .cornerRadius(5)
@@ -40,9 +38,12 @@ struct AddRideView: View {
                 
                 }
             .padding(.horizontal, 10)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color("appMirage"))
+        
             
             }
-        }
+        
 
         
     }
@@ -66,13 +67,20 @@ struct AddBikeCell: View {
             
             Text("\(subTitle)*")
                 .foregroundColor(.white)
+                .font(Fonts.labelText)
             TextField(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/, text: $textFieldBind)
-                .background(Color("appWaikawaGray")
-                    .cornerRadius(5))
+//                .background(Color("appWaikawaGray")
+//                .cornerRadius(5))
+//                .foregroundColor(.white)
+//                .frame(maxWidth: .infinity)
+//                .font(.system(size: 25))
+                .textFieldStyle(.plain)
+                .padding(10)
                 .foregroundColor(.white)
+                .font(Fonts.textField)
                 .frame(maxWidth: .infinity)
-                .font(.system(size: 25))
-//              .font()
+                .background(Color("appCloudBurst")
+                    .cornerRadius(5))
         }
     }
     

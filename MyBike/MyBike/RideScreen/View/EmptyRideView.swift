@@ -62,7 +62,9 @@ struct EmptyRideView: View {
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+                
             }
+        .background(.black)
         }
 }
 
