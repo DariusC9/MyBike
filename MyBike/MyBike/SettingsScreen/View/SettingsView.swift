@@ -37,6 +37,11 @@ struct DropdownView: View {
                     .background(Color("appCloudBurst"))
                     .cornerRadius(8)
                 }
+                .background(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.white, lineWidth: 1)
+                            .background(Color("appCloudBurst"))
+                    )
                 
                 if isMenuVisible {
                     VStack {
@@ -90,8 +95,11 @@ struct SettingsView: View {
                         .foregroundColor(.white)
                         .font(Fonts.textField)
                         .frame(maxWidth: .infinity)
-                        .background(Color("appCloudBurst")
-                            .cornerRadius(5))
+                        .background(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.white, lineWidth: 1)
+                                .background(Color("appCloudBurst"))
+                        )
                     
 
                     
