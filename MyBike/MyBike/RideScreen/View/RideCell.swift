@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RideCell: View {
+    let model: RideModel
     var body: some View {
         VStack(spacing: 5) {
             HStack(spacing: 0) {
@@ -17,7 +18,7 @@ struct RideCell: View {
                                     Circle()
                                         .stroke(Color.white, lineWidth: 2)
                                 )
-                Text("Friday 29 Ride")
+                Text("\(model.name)")
                     .foregroundColor(.white)
                     .font(Fonts.rideTitle)
                 Spacer()
@@ -34,7 +35,7 @@ struct RideCell: View {
                 Text("Bike: ")
                     .foregroundColor(.white)
                     .font(Fonts.labelTextRide)
-                Text("NukeProuf Scout 290")
+                Text("\(model.bikeName)")
                     .foregroundColor(.white)
                     .font(Fonts.detailsText)
                 Spacer()
@@ -43,7 +44,7 @@ struct RideCell: View {
                 Text("Distance: ")
                     .foregroundColor(.white)
                     .font(Fonts.labelTextRide)
-                Text("60km")
+                Text("\(model.distance)")
                     .foregroundColor(.white)
                     .font(Fonts.detailsText)
                 Spacer()
@@ -52,7 +53,7 @@ struct RideCell: View {
                 Text("Duration: ")
                     .foregroundColor(.white)
                     .font(Fonts.labelTextRide)
-                Text("2h, 14min")
+                Text("\(model.duration)")
                     .foregroundColor(.white)
                     .font(Fonts.detailsText)
                 Spacer()
@@ -61,7 +62,7 @@ struct RideCell: View {
                 Text("Date: ")
                     .foregroundColor(.white)
                     .font(Fonts.labelTextRide)
-                Text("29.03.2023")
+                Text("\(model.Date)")
                     .foregroundColor(.white)
                     .font(Fonts.detailsText)
                 Spacer()
@@ -69,14 +70,11 @@ struct RideCell: View {
         }
         .padding()
         .background(Color("appMirage"))
-        .padding()
-        
-        
     }
 }
 
 struct RideCell_Previews: PreviewProvider {
     static var previews: some View {
-        RideCell()
+        RideCell(model: RideModel.testRide())
     }
 }

@@ -14,6 +14,7 @@
 		807878FA2A2A2D33006302B9 /* RideContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878F92A2A2D33006302B9 /* RideContentView.swift */; };
 		807878FC2A2A309C006302B9 /* RideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878FB2A2A309B006302B9 /* RideView.swift */; };
 		807878FE2A2A3156006302B9 /* RideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878FD2A2A3156006302B9 /* RideCell.swift */; };
+		807879002A2A4AB8006302B9 /* RideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878FF2A2A4AB8006302B9 /* RideModel.swift */; };
 		8080FC742A264EA900143DA7 /* BikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080FC732A264EA900143DA7 /* BikeCell.swift */; };
 		8080FC762A267F4400143DA7 /* BikeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080FC752A267F4400143DA7 /* BikeModel.swift */; };
 		809A16A52A2525F3006BFE2E /* MyBikeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16A42A2525F3006BFE2E /* MyBikeApp.swift */; };
@@ -66,6 +67,7 @@
 		807878F92A2A2D33006302B9 /* RideContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideContentView.swift; sourceTree = "<group>"; };
 		807878FB2A2A309B006302B9 /* RideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideView.swift; sourceTree = "<group>"; };
 		807878FD2A2A3156006302B9 /* RideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideCell.swift; sourceTree = "<group>"; };
+		807878FF2A2A4AB8006302B9 /* RideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideModel.swift; sourceTree = "<group>"; };
 		8080FC732A264EA900143DA7 /* BikeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeCell.swift; sourceTree = "<group>"; };
 		8080FC752A267F4400143DA7 /* BikeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeModel.swift; sourceTree = "<group>"; };
 		809A16A12A2525F3006BFE2E /* MyBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +126,7 @@
 		807878F52A2A2B46006302B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				807878FF2A2A4AB8006302B9 /* RideModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				80A8CEBB2A25D6C2004A1DF3 /* CustomTabBar.swift in Sources */,
 				80A894C82A287FF900C2EB84 /* BikeContentView.swift in Sources */,
 				807878FC2A2A309C006302B9 /* RideView.swift in Sources */,
+				807879002A2A4AB8006302B9 /* RideModel.swift in Sources */,
 				807878FE2A2A3156006302B9 /* RideCell.swift in Sources */,
 				807878EA2A29CA30006302B9 /* CarouselView.swift in Sources */,
 				80A894D12A28B1E700C2EB84 /* CarouselColorView.swift in Sources */,

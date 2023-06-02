@@ -8,10 +8,26 @@
 import SwiftUI
 
 struct RideView: View {
+    var rideList = [
+        RideModel.testRide(),
+        RideModel.testRide(),
+        RideModel.testRide(),
+        RideModel.testRide(),
+    ]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack(spacing: 0) {
+            List(rideList, id: \.self) { list in
+                RideCell(model: list)
+                    .background(.black)
+            }
+            .scrollContentBackground(.hidden)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.black)
     }
-}
+    }
+
 
 struct RideView_Previews: PreviewProvider {
     static var previews: some View {
