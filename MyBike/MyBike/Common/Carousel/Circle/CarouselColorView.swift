@@ -8,7 +8,20 @@
 import SwiftUI
 
 struct CarouselColorView: View {
-    @State var carouselItems: [CarouselColorItem]
+    var carouselItems: [CarouselColorItem] = [
+        CarouselConstants.white,
+        CarouselConstants.gray,
+        CarouselConstants.green,
+        CarouselConstants.red,
+        CarouselConstants.yellow,
+        CarouselConstants.blue,
+        CarouselConstants.orange,
+        CarouselConstants.teal,
+        CarouselConstants.beige,
+        CarouselConstants.pink,
+        CarouselConstants.ciment,
+        CarouselConstants.brown,
+    ]
     @State var spacing: CGFloat = 25
     
     var body: some View {
@@ -25,6 +38,6 @@ struct CarouselColorView: View {
 
 struct CarouselColorView_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselColorView(carouselItems: [.defaultItem(), .defaultItem(),.defaultItem(),.defaultItem(),.defaultItem(),.defaultItem()])
+        CarouselColorView()
     }
 }

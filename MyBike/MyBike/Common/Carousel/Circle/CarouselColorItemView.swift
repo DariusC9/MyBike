@@ -44,6 +44,7 @@ struct CarouselColorItemView: View {
             Circle()
                 .foregroundColor(item.color)
                 .border(borderColor, width: 2)
+                .frame(maxWidth: 20, maxHeight: 20)
         }.gesture(
             TapGesture()
                 .onEnded { _ in

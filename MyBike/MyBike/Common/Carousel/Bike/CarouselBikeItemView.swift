@@ -7,16 +7,46 @@
 
 import SwiftUI
 
+enum BikeType: String {
+    case roadBike = "roadbike"
+    case hybrid
+    case electric
+    case mtb
+    
+    func getName() -> String {
+        switch self {
+        case .roadBike:
+            return "Road Bike"
+        case .hybrid:
+            return "Hybrid Bike"
+        case .electric:
+            return "Electric Bike"
+        case .mtb:
+            return "Mtb Bike"
+        }
+    }
+    
+    func getTopImageName() -> String {
+        return "bike_\(self.rawValue)_big_wheels"
+    }
+    
+    func getMiddleImageName() -> String {
+        return "bike_\(self.rawValue)_middle"
+    }
+    
+    func getBottomImageName() -> String {
+        return "bike_\(self.rawValue)_over"
+    }
+}
+
 struct CarouselBikeItem: Hashable {
     let ID = UUID()
-    let bikeType: String
-    var color: Color
+    let bikeType: BikeType
     var isSelected: Bool = false
     var actionWhenSelected: ((CarouselColorItem) -> Void)?
     
     static func defaultItem() -> CarouselBikeItem {
-        return CarouselBikeItem(bikeType: "Road Bike",
-                                color: .blue,
+        return CarouselBikeItem(bikeType: .electric,
                                 isSelected: false,
                                 actionWhenSelected: { item in
             print("Pushed \(item)")
@@ -37,30 +67,25 @@ struct CarouselBikeItem: Hashable {
     }
 }
 
-
-
-
-
 struct CarouselBikeItemView: View {
     @State var item: CarouselBikeItem
     @State var color: Color = .blue
-    @State var type: String = "Road Bike"
     
     var body: some View {
         VStack {
             ZStack{
-                Image("bike_electric_big_wheels")
-                Image("bike_electric_middle")
-                    .colorMultiply(item.color)
-                Image("bike_electric_over")
+                Image(item.bikeType.getTopImageName())
+                Image(item.bikeType.getMiddleImageName())
+                    .colorMultiply(color)
+                Image(item.bikeType.getBottomImageName())
             }
-            Text(item.bikeType)
+            Text(item.bikeType.getName())
         }
     }
 }
 
 struct CarouselBikeItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselBikeItemView(item: CarouselBikeItem.defaultItem())
+        CarouselBikeItemView(item: CarouselBikeItem(bikeType: .mtb))
     }
 }

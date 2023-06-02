@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		807878EA2A29CA30006302B9 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878E92A29CA2F006302B9 /* CarouselView.swift */; };
+		807878EC2A29CC51006302B9 /* CarouselConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878EB2A29CC51006302B9 /* CarouselConstants.swift */; };
 		8080FC742A264EA900143DA7 /* BikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080FC732A264EA900143DA7 /* BikeCell.swift */; };
 		8080FC762A267F4400143DA7 /* BikeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080FC752A267F4400143DA7 /* BikeModel.swift */; };
 		809A16A52A2525F3006BFE2E /* MyBikeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16A42A2525F3006BFE2E /* MyBikeApp.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		807878E92A29CA2F006302B9 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		807878EB2A29CC51006302B9 /* CarouselConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselConstants.swift; sourceTree = "<group>"; };
 		8080FC732A264EA900143DA7 /* BikeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeCell.swift; sourceTree = "<group>"; };
 		8080FC752A267F4400143DA7 /* BikeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeModel.swift; sourceTree = "<group>"; };
 		809A16A12A2525F3006BFE2E /* MyBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,6 +267,8 @@
 			children = (
 				80A894D22A28BB1A00C2EB84 /* Circle */,
 				80A894D72A28C36C00C2EB84 /* Bike */,
+				807878E92A29CA2F006302B9 /* CarouselView.swift */,
+				807878EB2A29CC51006302B9 /* CarouselConstants.swift */,
 			);
 			path = Carousel;
 			sourceTree = "<group>";
@@ -419,6 +425,7 @@
 				80A894C42A28726800C2EB84 /* BikeViewModel.swift in Sources */,
 				80A8CEBB2A25D6C2004A1DF3 /* CustomTabBar.swift in Sources */,
 				80A894C82A287FF900C2EB84 /* BikeContentView.swift in Sources */,
+				807878EA2A29CA30006302B9 /* CarouselView.swift in Sources */,
 				80A894D12A28B1E700C2EB84 /* CarouselColorView.swift in Sources */,
 				80A894CA2A28801D00C2EB84 /* BikeContentViewModel.swift in Sources */,
 				809A16AE2A2525F4006BFE2E /* Persistence.swift in Sources */,
@@ -431,6 +438,7 @@
 				80A894C62A2874EF00C2EB84 /* BikeView.swift in Sources */,
 				80A894CF2A28ACAC00C2EB84 /* CarouselColorItemView.swift in Sources */,
 				80A894CC2A28A46900C2EB84 /* AddBikeView.swift in Sources */,
+				807878EC2A29CC51006302B9 /* CarouselConstants.swift in Sources */,
 				8080FC762A267F4400143DA7 /* BikeModel.swift in Sources */,
 				80A5D78D2A27872000421F35 /* AddRideView.swift in Sources */,
 				80A5D7892A27648C00421F35 /* Fonts.swift in Sources */,

@@ -8,7 +8,14 @@
 import SwiftUI
 
 struct CarouselBiveView: View {
-    @State var carouselItems: [CarouselBikeItem]
+    
+    var carouselItems: [CarouselBikeItem] = [
+        CarouselBikeItem(bikeType: .roadBike),
+        CarouselBikeItem(bikeType: .hybrid),
+        CarouselBikeItem(bikeType: .electric),
+        CarouselBikeItem(bikeType: .mtb)
+    ]
+    
     @State var spacing: CGFloat = 25
     
     var body: some View {
@@ -25,6 +32,6 @@ struct CarouselBiveView: View {
 
 struct CarouselBiveView_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselBiveView(carouselItems: [.defaultItem(), .defaultItem(), .defaultItem(), .defaultItem()])
+        CarouselBiveView()
     }
 }
