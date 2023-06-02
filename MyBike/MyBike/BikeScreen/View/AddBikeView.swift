@@ -30,6 +30,7 @@ struct AddBikeView: View {
                 AddBikeCell(subTitle: "Wheel Size*", textFieldBind: $wheelSizeText)
                 AddBikeCell(subTitle: "Service in*", textFieldBind: $serviceInText)
                 Toggle("Default Bike", isOn: $defaultBike)
+                    .tint(Color("appBlueRibbon"))
                 Button(action: {
                     // TODO: Add action
                 }) {
@@ -37,7 +38,7 @@ struct AddBikeView: View {
                         .foregroundColor(.white)
                         .font(Fonts.buttonText)
                         .frame(maxWidth: .infinity, minHeight: 44)
-                        .background(Color.blue)
+                        .background(Color("appBlueRibbon"))
                         .cornerRadius(5)
                     
                     

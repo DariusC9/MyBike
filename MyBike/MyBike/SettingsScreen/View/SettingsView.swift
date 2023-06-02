@@ -78,7 +78,7 @@ struct SettingsView: View {
             DropdownView(subTitle: "Distance Units*")
             VStack (alignment: .leading, spacing: 5){
                 
-                Text("Service Reminder*")
+                Text("Service Reminder")
                     .foregroundColor(.white)
                     .font(Fonts.labelText)
 
@@ -97,10 +97,11 @@ struct SettingsView: View {
                     
                     Toggle("", isOn: $isToggleOn)
                         .labelsHidden()
+                        .tint(Color("appBlueRibbon"))
                 }
             }
             .padding(.horizontal, 10)
-            DropdownView(subTitle: "Default Bike*")
+            DropdownView(subTitle: "Default Bike")
             Spacer()
             
         }
