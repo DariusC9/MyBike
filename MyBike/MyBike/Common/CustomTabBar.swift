@@ -36,7 +36,7 @@ struct CustomTabBar: View {
                         .font(Fonts.tabBar)
                 }
                 .tag(0)
-            Text("Rides")
+            RideContentView()
                 .tabItem {
                     if selectedTab == 1 {
                         Image("rides_active")
