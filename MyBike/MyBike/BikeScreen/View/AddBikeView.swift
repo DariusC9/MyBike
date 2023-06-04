@@ -21,14 +21,14 @@ struct AddBikeView: View {
         ZStack{
             Color
                 .black
-//                .ignoresSafeArea(bottom)
+
             VStack{
-                HStack{
-    //                Image()
-    //                VStack{
-                        
-    //                }
-                }
+//                HStack{
+//    //                Image()
+//    //                VStack{
+//
+//    //                }
+//                }
                 
                 VStack(spacing: 20) {
                     AddBikeCell(subTitle: "Bike Name*", textFieldBind: $bikeNameText)
@@ -52,7 +52,7 @@ struct AddBikeView: View {
                 .padding(.horizontal, 10)
             }
         }
-        .navigationBarTitle("Add Bike", displayMode: .inline)
+        .edgesIgnoringSafeArea(.bottom)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(trailing:
                                 Button(action: {
@@ -60,8 +60,21 @@ struct AddBikeView: View {
         }) {
             Text("Cancel")
                 .foregroundColor(.blue)
+                .font(Font.system(size: 14))
         }
         )
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                VStack {
+                    Text("Add Bike")
+                        .bold()
+                        .foregroundColor(.white)
+                }
+            }
+        }
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarBackground(.black, for: .navigationBar)
     }
 }
     
