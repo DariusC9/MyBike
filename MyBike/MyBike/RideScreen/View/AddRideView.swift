@@ -14,6 +14,7 @@ struct AddRideView: View {
     @State var textFieldDistance: String = ""
     @State var textFieldDuration: String = ""
     @State var textFieldDate: String = ""
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
 
@@ -40,6 +41,28 @@ struct AddRideView: View {
             .padding(.horizontal, 10)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("appMirage"))
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                Text("Cancel")
+                    .foregroundColor(.blue)
+                    .font(Font.system(size: 14))
+            }
+            )
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    VStack {
+                        Text("Add Bike")
+                            .bold()
+                            .foregroundColor(.white)
+                    }
+                }
+            }
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(Color("appMirage"), for: .navigationBar)
         
             
             }

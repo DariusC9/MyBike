@@ -9,6 +9,8 @@ import SwiftUI
 
 struct EmptyRideView: View {
     
+    @State private var goToAddRideView = false
+    
     var body: some View {
         
         VStack(spacing: 0){
@@ -48,6 +50,7 @@ struct EmptyRideView: View {
                         Spacer()
                         
                         Button(action: {
+                            goToAddRideView.toggle()
                             
                         }) {
                             Text("Add Ride")
@@ -59,11 +62,16 @@ struct EmptyRideView: View {
                                 .cornerRadius(5)
                         }
                         .padding(.horizontal, 5)
+                        NavigationLink(destination: AddRideView(), isActive: $goToAddRideView) {
+                            EmptyView()
+                        }
+                        .hidden()
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
             }
+        .padding(.bottom, 5)
         .background(.black)
         }
 }
