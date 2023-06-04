@@ -16,14 +16,18 @@ struct RideView: View {
     ]
     var body: some View {
         
-        VStack(spacing: 0) {
+        VStack(alignment: .leading) {
             List(rideList, id: \.self) { list in
                 RideCell(model: list)
-                    .background(.black)
+                    .listRowBackground(Color.black)
+                    .listRowInsets(.init(top: 5,
+                                         leading: 0,
+                                         bottom: 5,
+                                        trailing: 0))
             }
             .scrollContentBackground(.hidden)
+            
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.black)
     }
     }
