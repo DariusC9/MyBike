@@ -56,17 +56,17 @@ struct EmptyBikeView: View {
                             .cornerRadius(5)
                     }
                     .padding(5)
-                    .background(
-                        NavigationLink(destination: AddBikeView(), isActive: $goToAddBikeView) {
-                            EmptyView()
-                        }
-                            .hidden()
-                    )
+                    NavigationLink(destination: AddBikeView(), isActive: $goToAddBikeView) {
+                        EmptyView()
+                    }
+                    .hidden()
+                    
                 }
             }
             .background(.black)
             .frame(maxWidth: .infinity, alignment: .leading)
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
