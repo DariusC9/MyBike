@@ -11,6 +11,6 @@ class BikeContentViewModel {
     
     var shouldShowEmptyScreen: Bool {
         // TODO: Check if there are bikes
-        return false
+        return true
     }
 }

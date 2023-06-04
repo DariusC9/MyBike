@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EmptyBikeView: View {
+    @State private var goToAddBikeView = false
     var body: some View {
         
         VStack(spacing: 0){
@@ -44,6 +45,7 @@ struct EmptyBikeView: View {
                     
                     Button(action: {
                         // TODO: Add action
+                        goToAddBikeView.toggle()
                     }) {
                         Text("Add Bike")
                             .foregroundColor(.white)
@@ -54,6 +56,12 @@ struct EmptyBikeView: View {
                             .cornerRadius(5)
                     }
                     .padding(5)
+                    .background(
+                        NavigationLink(destination: AddBikeView(), isActive: $goToAddBikeView) {
+                            EmptyView()
+                        }
+                            .hidden()
+                    )
                 }
             }
             .background(.black)

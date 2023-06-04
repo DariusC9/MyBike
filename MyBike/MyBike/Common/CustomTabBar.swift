@@ -24,43 +24,44 @@ struct CustomTabBar: View {
     }
     
     var body: some View {
-        TabView(selection: $selectedTab) {
-            BikeContentView(viewModel: BikeContentViewModel())
-                .tabItem {
-                    if selectedTab == 0 {
-                        Image("icon_bikes_active")
-                    } else {
-                        Image("icon_bikes_inactive")
+        NavigationView{
+            TabView(selection: $selectedTab) {
+                BikeContentView(viewModel: BikeContentViewModel())
+                    .tabItem {
+                        if selectedTab == 0 {
+                            Image("icon_bikes_active")
+                        } else {
+                            Image("icon_bikes_inactive")
+                        }
+                        Text("Bikes")
+                            .font(Fonts.tabBar)
                     }
-                    Text("Bikes")
-                        .font(Fonts.tabBar)
-                }
-                .tag(0)
-            RideContentView()
-                .tabItem {
-                    if selectedTab == 1 {
-                        Image("rides_active")
-                    } else {
-                        Image("rides_inactive")
+                    .tag(0)
+                RideContentView()
+                    .tabItem {
+                        if selectedTab == 1 {
+                            Image("rides_active")
+                        } else {
+                            Image("rides_inactive")
+                        }
+                        Text("Rides")
+                            .font(Fonts.tabBar)
                     }
-                    Text("Rides")
-                        .font(Fonts.tabBar)
-                }
-                .tag(1)
-            SettingsView()
-                .tabItem {
-                    if selectedTab == 2 {
-                        Image("settings_active")
-                    } else {
-                        Image("settings_inactive")
+                    .tag(1)
+                SettingsView()
+                    .tabItem {
+                        if selectedTab == 2 {
+                            Image("settings_active")
+                        } else {
+                            Image("settings_inactive")
+                        }
+                        Text("Settings")
+                            .font(Fonts.tabBar)
                     }
-                    Text("Settings")
-                        .font(Fonts.tabBar)
-                }
-                .tag(2)
+                    .tag(2)
+            }
+            .accentColor(.blue)
         }
-        .offset(y: 50)
-        .accentColor(.blue)
     }
 }
 

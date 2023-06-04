@@ -50,7 +50,7 @@ struct EmptyRideView: View {
                         Button(action: {
                             
                         }) {
-                            Text("Add Car")
+                            Text("Add Ride")
                                 .foregroundColor(.white)
                                 .font(.headline)
                                 .padding(.horizontal, 5)
