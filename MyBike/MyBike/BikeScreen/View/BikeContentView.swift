@@ -27,7 +27,8 @@ struct BikeContentView: View {
         var allBikes = [BikeModel]()
         for bike in bikes {
             if let name = bike.name {
-                allBikes.append(BikeModel(color: Color(bike.color ?? "bikeCornFlowerBlue"),
+                let colorName = bike.color ?? "bikeCornFlowerBlue"
+                allBikes.append(BikeModel(color: Color(colorName),
                                           name: name,
                                           distance: bike.distance,
                                           wheelSize: bike.wheelSize,

@@ -18,12 +18,14 @@ struct BikeCell: View {
                 .aspectRatio(contentMode: .fill)
             VStack {
                 ZStack {
-                    Image(model.bikeImages.topImageName)
+                    Image(model.bikeImages.wheelImageName)
                                 .scaleEffect(1.75)
                     Image(model.bikeImages.middleImageName)
                                 .scaleEffect(1.75)
-                    Image(model.bikeImages.wheelImageName)
+                                .colorMultiply(model.color)
+                    Image(model.bikeImages.topImageName)
                                 .scaleEffect(1.75)
+                    
                 }
                 .padding(.top, 30)
                 
