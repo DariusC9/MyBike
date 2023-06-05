@@ -19,17 +19,10 @@ struct AddBikeView: View {
     var body: some View {
         
         ZStack{
-            Color
-                .black
+            Color("appMirage")
 
             VStack{
-//                HStack{
-//    //                Image()
-//    //                VStack{
-//
-//    //                }
-//                }
-                
+                CarouselView()
                 VStack(spacing: 20) {
                     AddBikeCell(subTitle: "Bike Name*", textFieldBind: $bikeNameText)
                     AddBikeCell(subTitle: "Wheel Size*", textFieldBind: $wheelSizeText)
@@ -74,7 +67,7 @@ struct AddBikeView: View {
             }
         }
         .toolbarBackground(.visible, for: .navigationBar)
-        .toolbarBackground(.black, for: .navigationBar)
+        .toolbarBackground(Color("appMirage"), for: .navigationBar)
     }
 }
     

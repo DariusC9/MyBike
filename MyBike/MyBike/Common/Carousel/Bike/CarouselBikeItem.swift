@@ -26,6 +26,19 @@ enum BikeType: String {
         }
     }
     
+    func getTag() -> Int {
+        switch self {
+        case .roadBike:
+            return 0
+        case .hybrid:
+            return 1
+        case .electric:
+            return 2
+        case .mtb:
+            return 3
+        }
+    }
+    
     func getTopImageName() -> String {
         return "bike_\(self.rawValue)_big_wheels"
     }
@@ -64,28 +77,5 @@ struct CarouselBikeItem: Hashable {
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(ID)
-    }
-}
-
-struct CarouselBikeItemView: View {
-    @State var item: CarouselBikeItem
-    @State var color: Color = .blue
-    
-    var body: some View {
-        VStack {
-            ZStack{
-                Image(item.bikeType.getTopImageName())
-                Image(item.bikeType.getMiddleImageName())
-                    .colorMultiply(color)
-                Image(item.bikeType.getBottomImageName())
-            }
-            Text(item.bikeType.getName())
-        }
-    }
-}
-
-struct CarouselBikeItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        CarouselBikeItemView(item: CarouselBikeItem(bikeType: .mtb))
     }
 }

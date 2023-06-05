@@ -22,17 +22,43 @@ struct CarouselColorView: View {
         CarouselConstants.ciment,
         CarouselConstants.brown,
     ]
+    
     @State var spacing: CGFloat = 25
+    @State var selectedColor: CarouselColorItem?
     
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
                 ForEach(carouselItems, id: \.self) { item in
-                    CarouselColorItemView(item: item)
+                    createColorView(item)
                         .padding(.horizontal, spacing)
                 }
             }
         }
+    }
+    
+    // MARK: - Color Helpers
+    
+    @ViewBuilder
+    func createColorView(_ item: CarouselColorItem) -> some View {
+        VStack {
+            Circle()
+                .foregroundColor(item.color)
+                .border(isSelected(item) ? .white : .clear, width: 2)
+                .frame(maxWidth: 20, maxHeight: 20)
+        }.gesture(
+            TapGesture()
+                .onEnded { _ in
+                    selectedColor = item
+                }
+        )
+    }
+    
+    private func isSelected(_ item: CarouselColorItem) -> Bool {
+        guard let selectedColor = self.selectedColor else {
+            return false
+        }
+        return selectedColor == item
     }
 }
 

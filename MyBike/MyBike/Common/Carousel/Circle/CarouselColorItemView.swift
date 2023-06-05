@@ -12,15 +12,9 @@ struct CarouselColorItem: Hashable {
     
     let ID = UUID()
     let color: Color
-    var isSelected: Bool = false
-    var actionWhenSelected: ((CarouselColorItem) -> Void)?
     
     static func defaultItem() -> CarouselColorItem {
-        return CarouselColorItem(color: .blue,
-                            isSelected: false,
-                            actionWhenSelected: { item in
-            print("Pushed \(item)")
-        })
+        return CarouselColorItem(color: .blue)
     }
     
     // MARK: - Protocol Methods
@@ -33,32 +27,5 @@ struct CarouselColorItem: Hashable {
         hasher.combine(ID)
     }
     
-}
-
-struct CarouselColorItemView: View {
-    @State var item: CarouselColorItem
-    @State var borderColor: Color = .clear
-    
-    var body: some View {
-        VStack {
-            Circle()
-                .foregroundColor(item.color)
-                .border(borderColor, width: 2)
-                .frame(maxWidth: 20, maxHeight: 20)
-        }.gesture(
-            TapGesture()
-                .onEnded { _ in
-                    item.isSelected = true
-                    borderColor = .white
-                    item.actionWhenSelected?(item)
-                }
-        )
-    }
-    
-    struct CarouselItemView_Previews: PreviewProvider {
-        static var previews: some View {
-            CarouselColorItemView(item: CarouselColorItem.defaultItem())
-        }
-    }
 }
 

@@ -17,16 +17,59 @@ struct CarouselBiveView: View {
     ]
     
     @State var spacing: CGFloat = 25
+    @State var selectedImageIndex = 0
+    @State var color: Color = .blue
+    private let imageSize: CGSize = CGSize(width: 180, height: 180)
     
     var body: some View {
         ScrollView(.horizontal) {
-            HStack {
+            HStack(spacing: 100) {
                 ForEach(carouselItems, id: \.self) { item in
-                    CarouselBikeItemView(item: item)
-                        .padding(.horizontal, spacing)
+                    createBikeView(item)
+                        .padding()
+                        .tag(item.bikeType.getTag())
+                    
                 }
             }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+            .padding(.horizontal, 16)
+            .frame(height: 200)
         }
+        HStack(spacing: 8) {
+            ForEach(carouselItems, id: \.self) { item in
+                Circle()
+                    .foregroundColor(item.bikeType.getTag() == selectedImageIndex ? .blue : .gray)
+                    .frame(width: 8, height: 8)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func createBikeView(_ item: CarouselBikeItem) -> some View {
+        VStack {
+            ZStack{
+                Image(item.bikeType.getTopImageName())
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: imageSize.width, height: imageSize.height)
+                Image(item.bikeType.getMiddleImageName())
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: imageSize.width, height: imageSize.height)
+                    .colorMultiply(color)
+                Image(item.bikeType.getBottomImageName())
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: imageSize.width, height: imageSize.height)
+            }
+            Text(item.bikeType.getName())
+                .foregroundColor(.white)
+        }.gesture(
+            TapGesture()
+                .onEnded { _ in
+                    self.selectedImageIndex = item.bikeType.getTag()
+                }
+        )
     }
 }
 
