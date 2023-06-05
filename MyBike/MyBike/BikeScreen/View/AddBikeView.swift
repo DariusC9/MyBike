@@ -21,13 +21,16 @@ struct AddBikeView: View {
     @State var wheelSizeBorder: Color = .white
     @State var serviceBorder: Color = .white
     
+    @State var bikeType: BikeType = .roadBike
+    @State var bikeColor: String = "bikeCornFlowerBlue"
+    
     var body: some View {
         
         ZStack{
             Color("appMirage")
 
             VStack{
-                CarouselView()
+                CarouselView(color: $bikeColor, bikeType: $bikeType)
                 VStack(spacing: 20) {
                     AddBikeCell(subTitle: "Bike Name*", textFieldBind: $bikeNameText, borderColor: $bikeNameBorder)
                     AddBikeCell(subTitle: "Wheel Size*", textFieldBind: $wheelSizeText, borderColor: $wheelSizeBorder)
@@ -98,11 +101,16 @@ struct AddBikeView: View {
         if shouldNotSave {
             return
         }
+        
         let newBike = Bike(context: context)
         newBike.id = UUID()
         newBike.name = bikeNameText
-//
-//                        PersistenceController.shared.saveContext()
+        newBike.distance = service ?? 0
+        newBike.wheelSize = wheelSize ?? 0
+        newBike.type = bikeType.rawValue
+        newBike.color = bikeColor
+
+        PersistenceController.shared.saveContext()
     }
 }
     

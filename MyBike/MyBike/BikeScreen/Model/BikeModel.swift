@@ -19,7 +19,7 @@ struct BikeModel: Hashable {
     let ID = UUID()
     let color: Color
     let name: String
-    let distance: Int
+    let distance: Double
     let wheelSize: Double
     let bikeImages: BikeImages
     

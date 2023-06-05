@@ -35,6 +35,9 @@ struct CarouselView: View {
     @State var selectedImageIndex = 0
     private let imageSize: CGSize = CGSize(width: 180, height: 180)
     
+    @Binding var color: String
+    @Binding var bikeType: BikeType
+    
     var body: some View {
         VStack {
             createColorCarousel()
@@ -67,6 +70,7 @@ struct CarouselView: View {
             TapGesture()
                 .onEnded { _ in
                     selectedColor = item
+                    color = item.name
                 }
         )
     }
@@ -127,7 +131,8 @@ struct CarouselView: View {
         }.gesture(
             TapGesture()
                 .onEnded { _ in
-                    self.selectedImageIndex = item.bikeType.getTag()
+                    selectedImageIndex = item.bikeType.getTag()
+                    bikeType = item.bikeType
                 }
         )
     }
@@ -141,11 +146,5 @@ struct CarouselView: View {
     
     private func isSelectedBike(_ item: CarouselBikeItem) -> Bool {
         return item.bikeType.getTag() == selectedImageIndex
-    }
-}
-
-struct CarouselView_Previews: PreviewProvider {
-    static var previews: some View {
-        CarouselView()
     }
 }

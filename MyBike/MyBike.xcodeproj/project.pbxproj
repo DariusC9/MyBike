@@ -197,6 +197,14 @@
 			path = MyBikeUITests;
 			sourceTree = "<group>";
 		};
+		809C365B2A2E1AD10027B2F0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8080FC732A264EA900143DA7 /* BikeCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		80A894B92A286D2B00C2EB84 /* BikeScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,7 +236,7 @@
 		80A894BC2A286D4B00C2EB84 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8080FC732A264EA900143DA7 /* BikeCell.swift */,
+				809C365B2A2E1AD10027B2F0 /* Cell */,
 				80A5D7862A272F0800421F35 /* EmptyBikeView.swift */,
 				80A894C52A2874EF00C2EB84 /* BikeView.swift */,
 				80A894C72A287FF900C2EB84 /* BikeContentView.swift */,

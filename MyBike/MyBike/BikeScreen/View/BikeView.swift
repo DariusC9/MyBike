@@ -10,7 +10,7 @@ import SwiftUI
 struct BikeView: View {
     
 //    @State var viewModel: BikeViewModel
-    var bikeList = [BikeModel.testBike(),BikeModel.testBike(), BikeModel.testBike()]
+    var bikeList: [BikeModel]
     
     var body: some View {
         
@@ -28,7 +28,7 @@ struct BikeView: View {
     
     struct BikeView_Previews: PreviewProvider {
         static var previews: some View {
-            BikeView()
+            BikeView(bikeList: [BikeModel.testBike()])
         }
     }
 }

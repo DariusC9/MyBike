@@ -18,11 +18,27 @@ struct BikeContentView: View {
             if bikes.count == 0 {
                 EmptyBikeView()
             } else {
-                BikeView()
+                BikeView(bikeList: convertToBikeModel())
             }
         }
     }
-
+    
+    private func convertToBikeModel() -> [BikeModel] {
+        var allBikes = [BikeModel]()
+        for bike in bikes {
+            if let name = bike.name {
+                allBikes.append(BikeModel(color: Color(bike.color ?? "bikeCornFlowerBlue"),
+                                          name: name,
+                                          distance: bike.distance,
+                                          wheelSize: bike.wheelSize,
+                                          bikeImages: BikeModel.BikeImages(topImageName: "bike_electric_over",
+                                                                 middleImageName: "bike_electric_middle",
+                                                                 wheelImageName: "bike_electric_small_wheels")))
+            }
+        }
+        return allBikes
+    }
+    
 }
 
 struct BikeContentView_Previews: PreviewProvider {

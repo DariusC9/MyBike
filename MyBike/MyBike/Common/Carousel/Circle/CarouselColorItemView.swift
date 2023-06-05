@@ -12,9 +12,10 @@ struct CarouselColorItem: Hashable {
     
     let ID = UUID()
     let color: Color
+    let name: String
     
     static func defaultItem() -> CarouselColorItem {
-        return CarouselColorItem(color: .blue)
+        return CarouselColorItem(color: .blue, name: "")
     }
     
     // MARK: - Protocol Methods
