@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct AddBikeView: View {
-    
+
     @State var bikeNameText: String = ""
     @State var wheelSizeText: String = ""
     @State var serviceInText: String = ""
     @State var defaultBike: Bool = false
     @Environment(\.presentationMode) var presentationMode
+    
     
     
     var body: some View {
@@ -31,6 +33,11 @@ struct AddBikeView: View {
                         .tint(Color("appBlueRibbon"))
                     Button(action: {
                         // TODO: Add action
+//                        let newBike = Bike(context: PersistenceController.shared.mainContext)
+//                        newBike.id = UUID()
+//                        newBike.name = bikeNameText
+//                        
+//                        PersistenceController.shared.saveContext()
                     }) {
                         Text("Add Bike")
                             .foregroundColor(.white)

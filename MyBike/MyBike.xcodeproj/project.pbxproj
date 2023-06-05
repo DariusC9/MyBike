@@ -32,7 +32,6 @@
 		80A894C42A28726800C2EB84 /* BikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A894C32A28726800C2EB84 /* BikeViewModel.swift */; };
 		80A894C62A2874EF00C2EB84 /* BikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A894C52A2874EF00C2EB84 /* BikeView.swift */; };
 		80A894C82A287FF900C2EB84 /* BikeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A894C72A287FF900C2EB84 /* BikeContentView.swift */; };
-		80A894CA2A28801D00C2EB84 /* BikeContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A894C92A28801C00C2EB84 /* BikeContentViewModel.swift */; };
 		80A894CC2A28A46900C2EB84 /* AddBikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A894CB2A28A46900C2EB84 /* AddBikeView.swift */; };
 		80A894CF2A28ACAC00C2EB84 /* CarouselColorItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A894CE2A28ACAC00C2EB84 /* CarouselColorItemView.swift */; };
 		80A894D12A28B1E700C2EB84 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A894D02A28B1E700C2EB84 /* CarouselView.swift */; };
@@ -87,7 +86,6 @@
 		80A894C32A28726800C2EB84 /* BikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeViewModel.swift; sourceTree = "<group>"; };
 		80A894C52A2874EF00C2EB84 /* BikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeView.swift; sourceTree = "<group>"; };
 		80A894C72A287FF900C2EB84 /* BikeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeContentView.swift; sourceTree = "<group>"; };
-		80A894C92A28801C00C2EB84 /* BikeContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeContentViewModel.swift; sourceTree = "<group>"; };
 		80A894CB2A28A46900C2EB84 /* AddBikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBikeView.swift; sourceTree = "<group>"; };
 		80A894CE2A28ACAC00C2EB84 /* CarouselColorItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselColorItemView.swift; sourceTree = "<group>"; };
 		80A894D02A28B1E700C2EB84 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
@@ -289,7 +287,6 @@
 			isa = PBXGroup;
 			children = (
 				80A894C32A28726800C2EB84 /* BikeViewModel.swift */,
-				80A894C92A28801C00C2EB84 /* BikeContentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -462,7 +459,6 @@
 				807879002A2A4AB8006302B9 /* RideModel.swift in Sources */,
 				807878FE2A2A3156006302B9 /* RideCell.swift in Sources */,
 				80A894D12A28B1E700C2EB84 /* CarouselView.swift in Sources */,
-				80A894CA2A28801D00C2EB84 /* BikeContentViewModel.swift in Sources */,
 				809A16AE2A2525F4006BFE2E /* Persistence.swift in Sources */,
 				80A5D7872A272F0800421F35 /* EmptyBikeView.swift in Sources */,
 				809A16A72A2525F3006BFE2E /* ContentView.swift in Sources */,

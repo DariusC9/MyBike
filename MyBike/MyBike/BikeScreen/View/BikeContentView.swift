@@ -6,24 +6,27 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct BikeContentView: View {
+    @Environment(\.managedObjectContext) private var context: NSManagedObjectContext
     
-    var viewModel: BikeContentViewModel
-    
+    @FetchRequest (entity: Bike.entity(), sortDescriptors: []) private var bikes: FetchedResults<Bike>
+
     var body: some View {
         VStack {
-            if viewModel.shouldShowEmptyScreen {
+            if bikes.count == 0 {
                 EmptyBikeView()
             } else {
                 BikeView()
             }
         }
     }
+
 }
 
 struct BikeContentView_Previews: PreviewProvider {
     static var previews: some View {
-        BikeContentView(viewModel: BikeContentViewModel())
+        BikeContentView()
     }
 }

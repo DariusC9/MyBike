@@ -26,7 +26,7 @@ struct CustomTabBar: View {
     var body: some View {
         NavigationView{
             TabView(selection: $selectedTab) {
-                BikeContentView(viewModel: BikeContentViewModel())
+                BikeContentView()
                     .tabItem {
                         if selectedTab == 0 {
                             Image("icon_bikes_active")
