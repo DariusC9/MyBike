@@ -9,6 +9,7 @@ import SwiftUI
 import CoreData
 
 struct AddBikeView: View {
+    @Environment(\.managedObjectContext) private var context: NSManagedObjectContext
 
     @State var bikeNameText: String = ""
     @State var wheelSizeText: String = ""
@@ -16,7 +17,9 @@ struct AddBikeView: View {
     @State var defaultBike: Bool = false
     @Environment(\.presentationMode) var presentationMode
     
-    
+    @State var bikeNameBorder: Color = .white
+    @State var wheelSizeBorder: Color = .white
+    @State var serviceBorder: Color = .white
     
     var body: some View {
         
@@ -26,18 +29,13 @@ struct AddBikeView: View {
             VStack{
                 CarouselView()
                 VStack(spacing: 20) {
-                    AddBikeCell(subTitle: "Bike Name*", textFieldBind: $bikeNameText)
-                    AddBikeCell(subTitle: "Wheel Size*", textFieldBind: $wheelSizeText)
-                    AddBikeCell(subTitle: "Service in*", textFieldBind: $serviceInText)
+                    AddBikeCell(subTitle: "Bike Name*", textFieldBind: $bikeNameText, borderColor: $bikeNameBorder)
+                    AddBikeCell(subTitle: "Wheel Size*", textFieldBind: $wheelSizeText, borderColor: $wheelSizeBorder)
+                    AddBikeCell(subTitle: "Service in*", textFieldBind: $serviceInText, borderColor: $serviceBorder)
                     Toggle("Default Bike", isOn: $defaultBike)
                         .tint(Color("appBlueRibbon"))
                     Button(action: {
-                        // TODO: Add action
-//                        let newBike = Bike(context: PersistenceController.shared.mainContext)
-//                        newBike.id = UUID()
-//                        newBike.name = bikeNameText
-//                        
-//                        PersistenceController.shared.saveContext()
+                        saveBike()
                     }) {
                         Text("Add Bike")
                             .foregroundColor(.white)
@@ -75,6 +73,36 @@ struct AddBikeView: View {
         }
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbarBackground(Color("appMirage"), for: .navigationBar)
+    }
+    
+    // MARK: - Private
+    
+    private func saveBike() {
+        var wheelSize: Double?
+        var service: Double?
+        var shouldNotSave = false
+        if bikeNameText.isEmpty {
+            bikeNameBorder = .red
+            shouldNotSave = true
+        }
+        wheelSize = Double(wheelSizeText)
+        if wheelSizeText.isEmpty || wheelSize == nil {
+            wheelSizeBorder = .red
+            shouldNotSave = true
+        }
+        service = Double(serviceInText)
+        if serviceInText.isEmpty || service == nil {
+            serviceBorder = .red
+            shouldNotSave = true
+        }
+        if shouldNotSave {
+            return
+        }
+        let newBike = Bike(context: context)
+        newBike.id = UUID()
+        newBike.name = bikeNameText
+//
+//                        PersistenceController.shared.saveContext()
     }
 }
     

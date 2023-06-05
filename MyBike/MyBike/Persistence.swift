@@ -46,11 +46,13 @@ struct PersistenceController {
     
     func saveContext() {
         let viewContext = container.viewContext
-                do {
-                    try viewContext.save()
-                } catch {
-                    let nserror = error as NSError
-                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                }
+        if viewContext.hasChanges {
+            do {
+                try viewContext.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
         }
+    }
 }

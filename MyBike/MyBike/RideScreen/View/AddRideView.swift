@@ -16,14 +16,16 @@ struct AddRideView: View {
     @State var textFieldDate: String = ""
     @Environment(\.presentationMode) var presentationMode
     
+    @State var borderColor: Color = .white
+    
     var body: some View {
 
             VStack(spacing: 20) {
-                AddBikeCell(subTitle: "Ride Title", textFieldBind: $textFieldTitle)
-                AddBikeCell(subTitle: "Bike", textFieldBind: $textFieldBike)
-                AddBikeCell(subTitle: "Distance", textFieldBind: $textFieldDistance)
-                AddBikeCell(subTitle: "Duration", textFieldBind: $textFieldDuration)
-                AddBikeCell(subTitle: "Date", textFieldBind: $textFieldDate)
+                AddBikeCell(subTitle: "Ride Title", textFieldBind: $textFieldTitle, borderColor: $borderColor)
+                AddBikeCell(subTitle: "Bike", textFieldBind: $textFieldBike, borderColor: $borderColor)
+                AddBikeCell(subTitle: "Distance", textFieldBind: $textFieldDistance, borderColor: $borderColor)
+                AddBikeCell(subTitle: "Duration", textFieldBind: $textFieldDuration, borderColor: $borderColor)
+                AddBikeCell(subTitle: "Date", textFieldBind: $textFieldDate, borderColor: $borderColor)
                 Button(action: {
                     
                 }) {
@@ -83,20 +85,16 @@ struct AddBikeCell: View {
     
     var subTitle: String
     @Binding var textFieldBind: String
+    @Binding var borderColor: Color
     
     var body: some View {
-        
         VStack(alignment: .leading, spacing: 5) {
-            
             Text("\(subTitle)*")
                 .foregroundColor(.white)
                 .font(Fonts.labelText)
-            TextField(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/, text: $textFieldBind)
-//                .background(Color("appWaikawaGray")
-//                .cornerRadius(5))
-//                .foregroundColor(.white)
-//                .frame(maxWidth: .infinity)
-//                .font(.system(size: 25))
+            TextField(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/, text: $textFieldBind, onEditingChanged: { _ in
+                borderColor = .white
+            })
                 .textFieldStyle(.plain)
                 .padding(10)
                 .foregroundColor(.white)
@@ -104,11 +102,9 @@ struct AddBikeCell: View {
                 .frame(maxWidth: .infinity)
                 .background(
                     RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color.white, lineWidth: 1)
+                        .stroke(borderColor, lineWidth: 1)
                         .background(Color("appCloudBurst"))
                 )
         }
     }
-    
-    
 }
