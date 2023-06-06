@@ -8,17 +8,13 @@
 import SwiftUI
 
 struct RideView: View {
-    var rideList = [
-        RideModel.testRide(),
-        RideModel.testRide(),
-        RideModel.testRide(),
-        RideModel.testRide(),
-    ]
+    var allRides: [RideModel]
+    
     var body: some View {
         
         VStack(alignment: .leading) {
-            List(rideList, id: \.self) { list in
-                RideCell(model: list)
+            List(allRides, id: \.self) { item in
+                RideCell(model: item)
                     .listRowBackground(Color.black)
                     .listRowInsets(.init(top: 5,
                                          leading: 0,
@@ -35,6 +31,6 @@ struct RideView: View {
 
 struct RideView_Previews: PreviewProvider {
     static var previews: some View {
-        RideView()
+        RideView(allRides: [.testRide()])
     }
 }

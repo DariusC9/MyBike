@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RideCell: View {
     let model: RideModel
+    @State var bikeName: String = ""
+    
     var body: some View {
         VStack(spacing: 5) {
             HStack(spacing: 0) {
@@ -18,7 +20,7 @@ struct RideCell: View {
                                     Circle()
                                         .stroke(Color.white, lineWidth: 2)
                                 )
-                Text("\(model.name)")
+                Text("\(model.bikeName)")
                     .foregroundColor(.white)
                     .font(Fonts.rideTitle)
                 Spacer()

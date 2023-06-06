@@ -10,16 +10,17 @@ import SwiftUI
 
 struct RideModel: Hashable {
     
-    let ID = UUID()
-    let name: String
+    let ID: UUID
+    let title: String?
     let bikeName: String
     let distance: String
     let duration: String
     let Date: String
     
     static func testRide() -> RideModel {
-        return RideModel(name: "Friday 29 Ride",
-                         bikeName: "Nukeproof Scout 290",
+        return RideModel(ID: UUID(),
+                         title: "Friday 29 Ride",
+                         bikeName: "Bike 3000",
                          distance: "60km",
                          duration: "2h, 14min",
                          Date: "29.03.2023")
@@ -34,5 +35,4 @@ struct RideModel: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(ID)
     }
-    
 }

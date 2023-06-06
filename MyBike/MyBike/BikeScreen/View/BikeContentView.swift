@@ -26,9 +26,11 @@ struct BikeContentView: View {
     private func convertToBikeModel() -> [BikeModel] {
         var allBikes = [BikeModel]()
         for bike in bikes {
-            if let name = bike.name {
+            if let name = bike.name,
+               let id = bike.id {
                 let colorName = bike.color ?? "bikeCornFlowerBlue"
-                allBikes.append(BikeModel(color: Color(colorName),
+                allBikes.append(BikeModel(ID: id,
+                                          color: Color(colorName),
                                           name: name,
                                           distance: bike.distance,
                                           wheelSize: bike.wheelSize,

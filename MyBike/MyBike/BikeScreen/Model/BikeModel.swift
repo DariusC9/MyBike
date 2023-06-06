@@ -16,7 +16,7 @@ struct BikeModel: Hashable {
         let wheelImageName: String
     }
     
-    let ID = UUID()
+    let ID: UUID
     let color: Color
     let name: String
     let distance: Double
@@ -24,7 +24,7 @@ struct BikeModel: Hashable {
     let bikeImages: BikeImages
     
     static func testBike() -> BikeModel {
-        return BikeModel(color: .white, name: "Test Bike", distance: 123, wheelSize: 18, bikeImages: BikeImages(topImageName: "bike_electric_over",
+        return BikeModel(ID: UUID(), color: .white, name: "Test Bike", distance: 123, wheelSize: 18, bikeImages: BikeImages(topImageName: "bike_electric_over",
                                                                                                                                 middleImageName: "bike_electric_middle",
                                                                                                                                 wheelImageName: "bike_electric_small_wheels"))
     }
