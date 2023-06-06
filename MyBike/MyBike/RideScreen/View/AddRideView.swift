@@ -119,7 +119,17 @@ struct AddRideView: View {
         if shouldNotSave {
             return
         }
-        print("Ride saved \(selectedBike.name) \(selectedBike.id)")
+        
+        let newRide = Ride(context: context)
+        newRide.id = UUID()
+        newRide.bikeId = selectedBike.id
+        newRide.title = textFieldTitle
+        if let userDistance = distance {
+            newRide.distance = Int16(userDistance)
+        }
+        newRide.duration = textFieldDuration
+        newRide.date = textFieldDate
+        PersistenceController.shared.saveContext()
     }
     
     private func checkDate(_ date: String) -> Bool {

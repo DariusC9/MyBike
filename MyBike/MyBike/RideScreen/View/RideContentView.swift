@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct RideContentView: View {
+    @Environment(\.managedObjectContext) private var context: NSManagedObjectContext
     
-    private var viewModel = RideContentViewModel()
+    @FetchRequest (entity: Ride.entity(), sortDescriptors: []) private var rides: FetchedResults<Ride>
+    
     
     var body: some View {
-        if viewModel.shouldShowEmptyScreen {
+        if rides.count == 0 {
             EmptyRideView()
         } else {
             RideView()
