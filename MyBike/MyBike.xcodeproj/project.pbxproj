@@ -38,6 +38,7 @@
 		80A894D42A28BB6200C2EB84 /* CarouselBikeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A894D32A28BB6200C2EB84 /* CarouselBikeItem.swift */; };
 		80A894D62A28C36500C2EB84 /* CarouselBiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A894D52A28C36500C2EB84 /* CarouselBiveView.swift */; };
 		80A8CEBB2A25D6C2004A1DF3 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A8CEBA2A25D6C2004A1DF3 /* CustomTabBar.swift */; };
+		80BDF71D2A2F3B8600511E50 /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDF71C2A2F3B8600511E50 /* Pair.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		80A894D32A28BB6200C2EB84 /* CarouselBikeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselBikeItem.swift; sourceTree = "<group>"; };
 		80A894D52A28C36500C2EB84 /* CarouselBiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselBiveView.swift; sourceTree = "<group>"; };
 		80A8CEBA2A25D6C2004A1DF3 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		80BDF71C2A2F3B8600511E50 /* Pair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 			children = (
 				80A894CD2A28AC9A00C2EB84 /* Carousel */,
 				80A8CEBA2A25D6C2004A1DF3 /* CustomTabBar.swift */,
+				80BDF71C2A2F3B8600511E50 /* Pair.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				80A894CC2A28A46900C2EB84 /* AddBikeView.swift in Sources */,
 				807878EC2A29CC51006302B9 /* CarouselConstants.swift in Sources */,
 				8080FC762A267F4400143DA7 /* BikeModel.swift in Sources */,
+				80BDF71D2A2F3B8600511E50 /* Pair.swift in Sources */,
 				80A5D78D2A27872000421F35 /* AddRideView.swift in Sources */,
 				80A5D7892A27648C00421F35 /* Fonts.swift in Sources */,
 				809A16A52A2525F3006BFE2E /* MyBikeApp.swift in Sources */,

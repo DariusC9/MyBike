@@ -32,9 +32,9 @@ struct AddBikeView: View {
             VStack{
                 CarouselView(color: $bikeColor, bikeType: $bikeType)
                 VStack(spacing: 20) {
-                    AddBikeCell(subTitle: "Bike Name*", textFieldBind: $bikeNameText, borderColor: $bikeNameBorder)
-                    AddBikeCell(subTitle: "Wheel Size*", textFieldBind: $wheelSizeText, borderColor: $wheelSizeBorder)
-                    AddBikeCell(subTitle: "Service in*", textFieldBind: $serviceInText, borderColor: $serviceBorder)
+                    AddBikeCell(subTitle: "Bike Name", textFieldBind: $bikeNameText, borderColor: $bikeNameBorder)
+                    AddBikeCell(subTitle: "Wheel Size", textFieldBind: $wheelSizeText, borderColor: $wheelSizeBorder)
+                    AddBikeCell(subTitle: "Service in", textFieldBind: $serviceInText, borderColor: $serviceBorder)
                     Toggle("Default Bike", isOn: $defaultBike)
                         .tint(Color("appBlueRibbon"))
                     Button(action: {

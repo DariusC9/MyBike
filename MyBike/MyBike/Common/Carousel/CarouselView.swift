@@ -82,7 +82,7 @@ struct CarouselView: View {
         return selectedColor == item
     }
     
-    // MARK: Bike Carousel
+    // MARK: - Bike Carousel
     
     @ViewBuilder
     private func createBikeCarousel() -> some View {
