@@ -15,10 +15,13 @@ struct BikeView: View {
     var body: some View {
         
             VStack {
-                List(bikeList, id: \.self) { list in
-                    BikeCell(model: list)
+                List(bikeList, id: \.self) { item in
+                    BikeCell(model: item)
                         .padding(.top, 15)
                         .background(.black)
+                        .onTapGesture {
+                            print("it works")
+                        }
                 }
                 .scrollContentBackground(.hidden)
             }
