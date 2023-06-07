@@ -60,15 +60,16 @@ struct BikeDetailsView: View {
             }
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Rides: \(model.wheelSize)\"")
+                    Text("Rides: \(allRides.count)")
                         .font(Fonts.labelTextRide)
-                    Text("Total Rides Distance: \(model.distance)km")
+                    Text("Total Rides Distance: \(calculateBikesDistance())km")
                         .font(Fonts.labelTextRide)
                 }
                 .foregroundColor(.white)
                 Spacer()
             }
             .padding(.leading, 20)
+            .padding(.bottom, 20)
             .background(Color("appMirage"))
             VStack(alignment: .leading) {
                 List(allRides, id: \.self) { item in
@@ -86,6 +87,16 @@ struct BikeDetailsView: View {
             }
             .background(.black)
         }
+    }
+    
+    private func calculateBikesDistance() -> Int {
+        var distance = 0
+        for ride in allRides {
+            if ride.bikeName == model.name, let rideDistance = Int(ride.distance) {
+                distance += rideDistance
+            }
+        }
+        return distance
     }
 }
 
