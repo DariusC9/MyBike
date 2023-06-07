@@ -71,7 +71,7 @@ struct RideCell: View {
             }
         }
         .padding()
-        .background(Color("appMirage"))
+        .background(Color("appCloudBurst"))
     }
 }
 
