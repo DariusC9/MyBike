@@ -29,7 +29,6 @@ struct BikeView: View {
                 .scrollContentBackground(.hidden)
                 
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.black)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(
