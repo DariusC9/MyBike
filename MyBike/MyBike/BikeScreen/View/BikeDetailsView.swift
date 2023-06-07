@@ -12,30 +12,85 @@ struct BikeDetailsView: View {
     var allRides: [RideModel]
     
     var body: some View {
-        VStack {
-            BikeCell(model: model)
-            Text("Rides")
-                .padding(.horizontal, 10)
-            VStack {
+        VStack(spacing: 0) {
+            ZStack {
+                Image("no_bike_detailsBackground")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                VStack {
+                    ZStack {
+                        Image(model.bikeImages.wheelImageName)
+                            .scaleEffect(1.75)
+                        Image(model.bikeImages.middleImageName)
+                            .scaleEffect(1.75)
+                            .colorMultiply(model.color)
+                        Image(model.bikeImages.topImageName)
+                            .scaleEffect(1.75)
+                        
+                    }
+                    .padding(.top, 70)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Wheels: \(model.wheelSize)\"")
+                                .font(Fonts.labelTextRide)
+                            Text("Service in: \(model.distance)km")
+                                .font(Fonts.labelTextRide)
+                        }
+                        .foregroundColor(.white)
+                        .padding(.top, 20)
+                        Spacer()
+                    }
+                    .padding(.leading, 20)
+                    ZStack(alignment: .leading) {
+                        Image("loading_bar")
+                            .resizable()
+                            .frame(width: 350, height: 4)
+                        Image("loading_over")
+                            .resizable()
+                            .frame(width: 230, height: 4)
+                        Image("loading_circle")
+                        
+                        Image("loading_bolt")
+                            .offset(x: 350)
+                        Image("loading_wrench")
+                            .offset(x: 230)
+                    }
+                    .padding(.top, 20)
+                }
+            }
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Rides: \(model.wheelSize)\"")
+                        .font(Fonts.labelTextRide)
+                    Text("Total Rides Distance: \(model.distance)km")
+                        .font(Fonts.labelTextRide)
+                }
+                .foregroundColor(.white)
+                Spacer()
+            }
+            .padding(.leading, 20)
+            .background(Color("appMirage"))
+            VStack(alignment: .leading) {
                 List(allRides, id: \.self) { item in
                     RideCell(model: item)
                         .listRowBackground(Color.black)
-//                        .listRowInsets(.init(top: 5,
-//                                             leading: 0,
-//                                             bottom: 5,
-//                                             trailing: 0))
+                        .listRowInsets(.init(top: 5,
+                                             leading: 0,
+                                             bottom: 5,
+                                            trailing: 0))
+                        
                 }
-                .frame(maxWidth: .infinity)
                 .scrollContentBackground(.hidden)
-    
+                .padding(.horizontal, -20)
+                
             }
+            .background(.black)
         }
-        .padding(.horizontal, 10)
     }
 }
 
 struct BikeDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        BikeDetailsView(model: .testBike(), allRides: [.testRide()])
+        BikeDetailsView(model: .testBike(), allRides: [.testRide()]).frame(height: 350)
     }
 }

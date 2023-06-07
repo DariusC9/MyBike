@@ -47,7 +47,7 @@ struct RideView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 VStack {
-                    Text("Test")
+                    Text("Rides")
                         .bold()
                         .foregroundColor(.white)
                         .font(Fonts.title)
