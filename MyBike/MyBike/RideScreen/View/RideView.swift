@@ -10,9 +10,10 @@ import SwiftUI
 struct RideView: View {
     var allRides: [RideModel]
     var allStatistics: [StatisticsData]
+    @State private var goToAddRideView = false
     
     var body: some View {
-        VStack{
+        VStack(spacing: 0) {
             StatisticsView(allStatistics: allStatistics)
             VStack(alignment: .leading) {
                 List(allRides, id: \.self) { item in
@@ -22,12 +23,41 @@ struct RideView: View {
                                              leading: 0,
                                              bottom: 5,
                                             trailing: 0))
+                        
                 }
                 .scrollContentBackground(.hidden)
+                .padding(.horizontal, -20)
                 
             }
             .background(.black)
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(
+            leading: NavigationLink(destination: AddRideView(), isActive: $goToAddRideView) {
+            },
+            trailing: Button(action: {
+                goToAddRideView.toggle()
+            }) {
+                Text("+ Add Ride")
+                    .foregroundColor(.white)
+                    .font(Fonts.navBar)
+            }
+        )
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                VStack {
+                    Text("Test")
+                        .bold()
+                        .foregroundColor(.white)
+                        .font(Fonts.title)
+                }
+            }
+        }
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarBackground(Color(.black), for: .navigationBar)
+        .padding(.horizontal, 10)
+        .background(.black)
     }
     }
 

@@ -68,9 +68,9 @@ struct AddRideView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 VStack {
-                    Text("Add Bike")
-                        .bold()
+                    Text("Add Ride")
                         .foregroundColor(.white)
+                        .font(Fonts.title)
                 }
             }
         }

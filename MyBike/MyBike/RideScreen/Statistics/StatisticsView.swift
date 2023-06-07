@@ -23,9 +23,13 @@ struct StatisticsView: View {
     
     var body: some View {
         VStack {
-            Text("All Rides Statistics")
-                .foregroundColor(.white)
-                .font(Fonts.rideTitle)
+            HStack {
+                Image("icon_stats")
+                Text("All Rides Statistics")
+                    .foregroundColor(.white)
+                    .font(Fonts.rideTitle)
+                Spacer()
+            }
             ZStack {
                 createBackground()
                 createStatisticsView()
@@ -35,6 +39,7 @@ struct StatisticsView: View {
                 .foregroundColor(.white)
                 .font(Fonts.rideTitle)
         }
+        .padding(.horizontal, 10)
         .background(Color("appMirage"))
     }
     

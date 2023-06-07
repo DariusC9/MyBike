@@ -69,8 +69,8 @@ struct AddBikeView: View {
             ToolbarItem(placement: .principal) {
                 VStack {
                     Text("Add Bike")
-                        .bold()
                         .foregroundColor(.white)
+                        .font(Fonts.title)
                 }
             }
         }
