@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StatisticsData: Hashable {
-    let color: Color
+    let color: String
     let value: Int
     let bikeName: String
     let bikeID: UUID
@@ -24,14 +24,18 @@ struct StatisticsView: View {
     var body: some View {
         VStack {
             Text("All Rides Statistics")
+                .foregroundColor(.white)
+                .font(Fonts.rideTitle)
             ZStack {
                 createBackground()
-                VStack {
-                    createStatisticsView()
-                    Text("Total: \(getTotal())")
-                }
+                createStatisticsView()
+                
             }
+            Text("Total: \(getTotal())")
+                .foregroundColor(.white)
+                .font(Fonts.rideTitle)
         }
+        .background(Color("appMirage"))
     }
     
     // MARK: - Private
@@ -40,13 +44,13 @@ struct StatisticsView: View {
     private func createBackground() -> some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
-                ForEach(0..<9) { _ in
+                ForEach(0..<7) { _ in
                     Rectangle()
                         .size(width: geometry.size.width - 5,
                                      height: 1)
                         .foregroundColor(.clear)
                         .cornerRadius(2)
-                        .border(.blue, width: 0.5)
+                        .border(Color("garminLightGray"), width: 0.5)
                 }
             }
         }
@@ -61,10 +65,11 @@ struct StatisticsView: View {
                         Rectangle()
                             .size(width: calculateWidthFor(geometry.size.width),
                                          height: calculateHeightFor(statistic.value, geometry.size.height - 100))
-                            .foregroundColor(statistic.color)
+                            .foregroundColor(Color(statistic.color))
                             .cornerRadius(2)
                             .rotationEffect(Angle(degrees: 180))
                         Text(statistic.bikeName).scaledToFit()
+                            .foregroundColor(Color("garminLightGray"))
                     }
                     
                 }
@@ -102,9 +107,9 @@ struct StatisticsView: View {
 struct StatisticsView_Previews: PreviewProvider {
     static var previews: some View {
         StatisticsView(allStatistics: [
-            StatisticsData(color: .green, value: 1300, bikeName: "Road", bikeID: UUID()),
-            StatisticsData(color: .yellow, value: 500, bikeName: "E-bike", bikeID: UUID()),
-            StatisticsData(color: .red, value: 1300, bikeName: "Distrugatorul", bikeID: UUID()),
-            StatisticsData(color: .pink, value: 100, bikeName: "MTB", bikeID: UUID())]).frame(height: 350)
+            StatisticsData(color: ".green", value: 1300, bikeName: "Road", bikeID: UUID()),
+            StatisticsData(color: ".yellow", value: 500, bikeName: "E-bike", bikeID: UUID()),
+            StatisticsData(color: ".red", value: 1300, bikeName: "Distrugatorul", bikeID: UUID()),
+            StatisticsData(color: ".pink", value: 100, bikeName: "MTB", bikeID: UUID())]).frame(height: 350)
     }
 }

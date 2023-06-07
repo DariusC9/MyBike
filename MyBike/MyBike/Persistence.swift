@@ -9,7 +9,7 @@ import CoreData
 
 struct PersistenceController {
     static let shared = PersistenceController()
-
+    
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
@@ -27,9 +27,9 @@ struct PersistenceController {
         }
         return result
     }()
-
+    
     let container: NSPersistentContainer
-
+    
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "MyBike")
         if inMemory {
@@ -37,7 +37,7 @@ struct PersistenceController {
         }
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-
+                
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
@@ -54,5 +54,29 @@ struct PersistenceController {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func fetchBikes() -> [Bike] {
+        let viewContext = container.viewContext
+        let fetchRequest = NSFetchRequest<Bike>(entityName: "Bike")
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            return result
+        } catch {
+            print("Error fetching Bike objects: \(error.localizedDescription)")
+        }
+        return []
+    }
+    
+    func fetchRides() -> [Ride] {
+        let viewContext = container.viewContext
+        let fetchRequest = NSFetchRequest<Ride>(entityName: "Ride")
+        do {
+            let result = try viewContext.fetch(fetchRequest)
+            return result
+        } catch {
+            print("Error fetching Ride objects: \(error.localizedDescription)")
+        }
+        return []
     }
 }

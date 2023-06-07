@@ -11,15 +11,50 @@ import CoreData
 struct RideContentView: View {
     @Environment(\.managedObjectContext) private var context: NSManagedObjectContext
     
-    @FetchRequest (entity: Ride.entity(), sortDescriptors: []) private var rides: FetchedResults<Ride>
+    @FetchRequest(entity: Ride.entity(), sortDescriptors: []) private var rides: FetchedResults<Ride>
     
+    private var bikes = PersistenceController.shared.fetchBikes()
+    
+    @State private var statistics: [StatisticsData] = []
     
     var body: some View {
-        if rides.count == 0 {
-            EmptyRideView()
-        } else {
-            RideView(allRides: convertToRideModel())
+        VStack {
+            if rides.count == 0 {
+                EmptyRideView()
+            } else {
+                RideView(allRides: convertToRideModel(), allStatistics: statistics)
+                    .onAppear(perform: {
+                        statistics = transformDataIntoStatistics()
+                    })
+            }
         }
+    }
+    
+    private func transformDataIntoStatistics() -> [StatisticsData] {
+        var data: [StatisticsData] = []
+        for bike in bikes {
+            if let id = bike.id,
+               let name = bike.name,
+               let color = bike.color {
+                let bikeTotalDistance = calculateBikeTotalDistance(id)
+                data.append(StatisticsData(color: color,
+                                           value: bikeTotalDistance,
+                                           bikeName: name,
+                                           bikeID: id))
+
+            }
+        }
+        return data
+    }
+    
+    private func calculateBikeTotalDistance(_ id: UUID) -> Int {
+        var count = 0
+        for ride in rides {
+            if ride.bikeId == id {
+                count += Int(ride.distance)
+            }
+        }
+        return count
     }
     
     private func convertToRideModel() -> [RideModel] {
@@ -43,19 +78,11 @@ struct RideContentView: View {
         return allRides
     }
     private func fetchBikeName(_ id: UUID) -> String {
-        
-        let fetchRequest = NSFetchRequest<Bike>(entityName: "Bike")
-        
-        do {
-            let results = try context.fetch(fetchRequest)
-            for bike in results {
+            for bike in bikes {
                 if bike.id == id, let name = bike.name {
                     return name
                 }
             }
-        } catch {
-            print("Error fetching Ride names: \(error.localizedDescription)")
-        }
         return ""
     }
     
