@@ -74,7 +74,7 @@ struct BikeDetailsView: View {
             VStack(alignment: .leading) {
                 List(allRides, id: \.self) { item in
                     RideCell(model: item)
-                        .listRowBackground(Color.black)
+                        .listRowBackground(Color("appMirage"))
                         .listRowInsets(.init(top: 5,
                                              leading: 0,
                                              bottom: 5,
@@ -85,8 +85,35 @@ struct BikeDetailsView: View {
                 .padding(.horizontal, -20)
                 
             }
-            .background(.black)
+            .background(Color("appMirage"))
         }
+//        .navigationBarItems(
+//            leading: NavigationLink(destination: AddBikeView(), isActive: $goToAddBikeView) {
+//            },
+//            trailing: Button(action: {
+//                goToAddBikeView.toggle()
+//            }) {
+//                HStack {
+//                    Image("icon_add")
+//                    Text("Add Bike")
+//                        .foregroundColor(.blue)
+//                        .font(Fonts.navBar)
+//                }
+//            }
+//        )
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                VStack {
+                    Text("\(model.name)")
+                        .bold()
+                        .foregroundColor(.white)
+                        .font(Fonts.title)
+                }
+            }
+        }
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarBackground(Color(.black), for: .navigationBar)
     }
     
     private func calculateBikesDistance() -> Int {
