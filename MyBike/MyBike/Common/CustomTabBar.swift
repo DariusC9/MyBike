@@ -12,7 +12,6 @@ struct CustomTabBar: View {
     @State private var selectedTab = 0
     
     init() {
-        UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().unselectedItemTintColor = .white
         UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance.init(idiom: .unspecified)
         UITabBar.appearance().backgroundColor = UIColor(Color("appCloudBurst"))
@@ -24,9 +23,10 @@ struct CustomTabBar: View {
     }
     
     var body: some View {
-        NavigationView{
             TabView(selection: $selectedTab) {
-                BikeContentView()
+                NavigationView {
+                    BikeContentView()
+                }
                     .tabItem {
                         if selectedTab == 0 {
                             Image("icon_bikes_active")
@@ -37,7 +37,9 @@ struct CustomTabBar: View {
                             .font(Fonts.tabBar)
                     }
                     .tag(0)
-                RideContentView()
+                NavigationView {
+                    RideContentView()
+                }
                     .tabItem {
                         if selectedTab == 1 {
                             Image("rides_active")
@@ -48,7 +50,9 @@ struct CustomTabBar: View {
                             .font(Fonts.tabBar)
                     }
                     .tag(1)
-                SettingsView()
+                NavigationView {
+                    SettingsView()
+                }
                     .tabItem {
                         if selectedTab == 2 {
                             Image("settings_active")
@@ -63,7 +67,6 @@ struct CustomTabBar: View {
             .accentColor(.blue)
         }
     }
-}
 
 struct CustomTabBar_Previews: PreviewProvider {
     static var previews: some View {
