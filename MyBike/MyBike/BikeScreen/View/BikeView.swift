@@ -38,9 +38,12 @@ struct BikeView: View {
                 trailing: Button(action: {
                     goToAddBikeView.toggle()
                 }) {
-                    Text("+ Add Bike")
-                        .foregroundColor(.white)
-                        .font(Fonts.navBar)
+                    HStack {
+                        Image("icon_add")
+                        Text("Add Bike")
+                            .foregroundColor(.blue)
+                            .font(Fonts.navBar)
+                    }
                 }
             )
             .navigationBarTitleDisplayMode(.inline)

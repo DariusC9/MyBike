@@ -38,9 +38,12 @@ struct RideView: View {
             trailing: Button(action: {
                 goToAddRideView.toggle()
             }) {
-                Text("+ Add Ride")
-                    .foregroundColor(.white)
-                    .font(Fonts.navBar)
+                HStack {
+                    Image("icon_add")
+                    Text("Add Ride")
+                        .foregroundColor(.blue)
+                        .font(Fonts.navBar)
+                }
             }
         )
         .navigationBarTitleDisplayMode(.inline)
