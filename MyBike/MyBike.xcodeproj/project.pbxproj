@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80232F432A310D1500DCB7FA /* EditBikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232F422A310D1500DCB7FA /* EditBikeView.swift */; };
 		807878EC2A29CC51006302B9 /* CarouselConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878EB2A29CC51006302B9 /* CarouselConstants.swift */; };
 		807878F32A29DDCE006302B9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878F22A29DDCE006302B9 /* SettingsView.swift */; };
 		807878F82A2A2CE7006302B9 /* RideContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878F72A2A2CE7006302B9 /* RideContentViewModel.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		80232F422A310D1500DCB7FA /* EditBikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBikeView.swift; sourceTree = "<group>"; };
 		807878EB2A29CC51006302B9 /* CarouselConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselConstants.swift; sourceTree = "<group>"; };
 		807878F22A29DDCE006302B9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		807878F72A2A2CE7006302B9 /* RideContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideContentViewModel.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				80A894C72A287FF900C2EB84 /* BikeContentView.swift */,
 				80A894CB2A28A46900C2EB84 /* AddBikeView.swift */,
 				80BDF71E2A2F6E6000511E50 /* BikeDetailsView.swift */,
+				80232F422A310D1500DCB7FA /* EditBikeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				80A894D42A28BB6200C2EB84 /* CarouselBikeItem.swift in Sources */,
 				8080FC742A264EA900143DA7 /* BikeCell.swift in Sources */,
 				80A5D78B2A27794B00421F35 /* EmptyRideView.swift in Sources */,
+				80232F432A310D1500DCB7FA /* EditBikeView.swift in Sources */,
 				80A894D62A28C36500C2EB84 /* CarouselBiveView.swift in Sources */,
 				80A894C62A2874EF00C2EB84 /* BikeView.swift in Sources */,
 				80A894CF2A28ACAC00C2EB84 /* CarouselColorItemView.swift in Sources */,
