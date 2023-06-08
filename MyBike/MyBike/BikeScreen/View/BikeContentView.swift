@@ -32,8 +32,8 @@ struct BikeContentView: View {
                 allBikes.append(BikeModel(ID: id,
                                           color: colorName,
                                           name: name,
-                                          distance: bike.distance,
-                                          wheelSize: bike.wheelSize,
+                                          distance: Double(bike.distance),
+                                          wheelSize: Double(bike.wheelSize),
                                           bikeImages: BikeModel.BikeImages(topImageName: "bike_electric_over",
                                                                  middleImageName: "bike_electric_middle",
                                                                  wheelImageName: "bike_electric_small_wheels")))

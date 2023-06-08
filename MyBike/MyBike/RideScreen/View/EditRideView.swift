@@ -39,8 +39,7 @@ struct EditRideView: View {
             AddBikeCell(subTitle: "Duration", textFieldBind: $textFieldDuration, borderColor: $durationBorder)
             AddBikeCell(subTitle: "Date", textFieldBind: $textFieldDate, borderColor: $dateBorder)
             Button(action: {
-                saveRide()
-                presentationMode.wrappedValue.dismiss()
+                editRide()
             }) {
                 Text("Add Ride")
                     .foregroundColor(.white)
@@ -93,7 +92,7 @@ struct EditRideView: View {
         }
     }
     
-    private func saveRide() {
+    private func editRide() {
         var distance: Int?
         var date: String?
         var duration: String = ""
@@ -122,17 +121,32 @@ struct EditRideView: View {
         if shouldNotSave {
             return
         }
+        let savedId = selectedRide.ID
+        deleteRide()
         
         let newRide = Ride(context: context)
-        newRide.id = UUID()
+        newRide.id = savedId
         newRide.bikeId = selectedBike.id
         newRide.title = textFieldTitle
         if let userDistance = distance {
-            newRide.distance = Int16(userDistance)
+            newRide.distance = Int64(userDistance)
         }
         newRide.duration = textFieldDuration
         newRide.date = textFieldDate
+        
         PersistenceController.shared.saveContext()
+        presentationMode.wrappedValue.dismiss()
+    }
+    
+    private func deleteRide() {
+        var rides = PersistenceController.shared.fetchRides()
+        
+        for ride in rides {
+            if ride.id == selectedRide.ID {
+                context.delete(ride)
+                PersistenceController.shared.saveContext()
+            }
+        }
     }
     
     private func checkDate(_ date: String) -> Bool {

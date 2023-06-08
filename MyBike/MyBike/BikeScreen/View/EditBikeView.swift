@@ -82,20 +82,20 @@ struct EditBikeView: View {
     // MARK: - Private
     
     private func editBike() {
-        var wheelSize: Double?
-        var service: Double?
+        var wheelSize: Int64?
+        var service: Int64?
         var shouldNotSave = false
         
         if bikeNameText.isEmpty {
             bikeNameBorder = .red
             shouldNotSave = true
         }
-        wheelSize = Double(wheelSizeText)
+        wheelSize = Int64(wheelSizeText)
         if wheelSizeText.isEmpty || wheelSize == nil {
             wheelSizeBorder = .red
             shouldNotSave = true
         }
-        service = Double(serviceInText)
+        service = Int64(serviceInText)
         if serviceInText.isEmpty || service == nil {
             serviceBorder = .red
             shouldNotSave = true
