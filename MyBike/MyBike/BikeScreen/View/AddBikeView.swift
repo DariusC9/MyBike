@@ -111,6 +111,7 @@ struct AddBikeView: View {
         newBike.color = bikeColor
 
         PersistenceController.shared.saveContext()
+        presentationMode.wrappedValue.dismiss()
     }
 }
     
