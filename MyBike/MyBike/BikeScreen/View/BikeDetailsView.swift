@@ -23,7 +23,7 @@ struct BikeDetailsView: View {
                             .scaleEffect(1.75)
                         Image(model.bikeImages.middleImageName)
                             .scaleEffect(1.75)
-                            .colorMultiply(model.color)
+                            .colorMultiply(Color(model.color))
                         Image(model.bikeImages.topImageName)
                             .scaleEffect(1.75)
                         

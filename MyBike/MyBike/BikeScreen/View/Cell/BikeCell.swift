@@ -22,13 +22,10 @@ struct BikeCell: View {
                                 .scaleEffect(1.75)
                     Image(model.bikeImages.middleImageName)
                                 .scaleEffect(1.75)
-                                .colorMultiply(model.color)
+                                .colorMultiply(Color(model.color))
                     Image(model.bikeImages.topImageName)
                                 .scaleEffect(1.75)
-                    
                 }
-                .padding(.top, 30)
-                
                 HStack {
                     VStack(alignment: .leading) {
                         Text("Name: \(model.name)")

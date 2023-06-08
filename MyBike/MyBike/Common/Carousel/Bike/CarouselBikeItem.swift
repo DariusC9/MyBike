@@ -9,9 +9,9 @@ import SwiftUI
 
 enum BikeType: String {
     case roadBike = "roadbike"
-    case hybrid
-    case electric
-    case mtb
+    case hybrid = "hybrid"
+    case electric = "electric"
+    case mtb = "mtb"
     
     func getName() -> String {
         switch self {

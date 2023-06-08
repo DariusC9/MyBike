@@ -30,7 +30,7 @@ struct BikeContentView: View {
                let id = bike.id {
                 let colorName = bike.color ?? "bikeCornFlowerBlue"
                 allBikes.append(BikeModel(ID: id,
-                                          color: Color(colorName),
+                                          color: colorName,
                                           name: name,
                                           distance: bike.distance,
                                           wheelSize: bike.wheelSize,

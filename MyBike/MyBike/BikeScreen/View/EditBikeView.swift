@@ -22,16 +22,15 @@ struct EditBikeView: View {
     @State var serviceBorder: Color = .white
     
     @State var bikeType: BikeType = .roadBike
-    @State var bikeColor: String = "bikeCornFlowerBlue"
+    @State var selectedBike: BikeModel
     
-    var selectedBike: BikeModel
     var body: some View {
         
         ZStack{
             Color("appMirage")
 
             VStack{
-                CarouselView(color: $bikeColor, bikeType: $bikeType)
+                CarouselView(color: $selectedBike.color, bikeType: $bikeType)
                 VStack(spacing: 20) {
                     AddBikeCell(subTitle: "Bike Name", textFieldBind: $bikeNameText, borderColor: $bikeNameBorder)
                     AddBikeCell(subTitle: "Wheel Size", textFieldBind: $wheelSizeText, borderColor: $wheelSizeBorder)
@@ -39,9 +38,10 @@ struct EditBikeView: View {
                     Toggle("Default Bike", isOn: $defaultBike)
                         .tint(Color("appBlueRibbon"))
                     Button(action: {
-                        saveBike()
+                        deleteBike()
+                        editBike()
                     }) {
-                        Text("Add Bike")
+                        Text("Save")
                             .foregroundColor(.white)
                             .font(Fonts.buttonText)
                             .frame(maxWidth: .infinity, minHeight: 44)
@@ -69,7 +69,7 @@ struct EditBikeView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 VStack {
-                    Text("Add Bike")
+                    Text("Edit Bike")
                         .foregroundColor(.white)
                         .font(Fonts.title)
                 }
@@ -81,10 +81,11 @@ struct EditBikeView: View {
     
     // MARK: - Private
     
-    private func saveBike() {
+    private func editBike() {
         var wheelSize: Double?
         var service: Double?
         var shouldNotSave = false
+        
         if bikeNameText.isEmpty {
             bikeNameBorder = .red
             shouldNotSave = true
@@ -104,19 +105,29 @@ struct EditBikeView: View {
         }
         
         let newBike = Bike(context: context)
-        newBike.id = UUID()
+        newBike.id = selectedBike.ID
         newBike.name = bikeNameText
         newBike.distance = service ?? 0
         newBike.wheelSize = wheelSize ?? 0
         newBike.type = bikeType.rawValue
-        newBike.color = bikeColor
+        newBike.color = selectedBike.color
 
         PersistenceController.shared.saveContext()
+    }
+    private func deleteBike() {
+        var bikes = PersistenceController.shared.fetchBikes()
+        
+        for bike in bikes {
+            if bike.id == selectedBike.ID {
+                context.delete(bike)
+                PersistenceController.shared.saveContext()
+            }
+        }
     }
 }
 
 struct EditBikeView_Previews: PreviewProvider {
     static var previews: some View {
-        EditBikeView()
+        EditBikeView(selectedBike: .testBike())
     }
 }
