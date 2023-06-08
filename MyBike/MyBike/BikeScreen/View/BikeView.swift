@@ -11,6 +11,8 @@ struct BikeView: View {
     
     @State private var goToAddBikeView = false
     @State private var goToEditBikeView = false
+    @State private var showingAlert = false
+    @State private var bikeName = ""
 
     var rides = PersistenceController.shared.fetchRides()
     var bikes = PersistenceController.shared.fetchBikes()
@@ -25,6 +27,7 @@ struct BikeView: View {
                     ZStack(alignment: .topTrailing) {
                         BikeCell(model: item)
                             .padding(.top, 15)
+                        
                         Menu {
                             Button {
                                 goToEditBikeView.toggle()
@@ -33,7 +36,8 @@ struct BikeView: View {
                                     Text("Edit")
                             }
                             Button {
-                                print("delete")
+                                showingAlert.toggle()
+                                bikeName = item.name
                             } label: {
                                     Text("Delete")
                                     Image("icon_delete")
@@ -43,8 +47,14 @@ struct BikeView: View {
                             Image("icon_overflow")
                         }
                         .padding()
+                        .alert("\(bikeName) will be deleted", isPresented: $showingAlert) {
+                            Button("Cancel", role: .cancel) { }
+                            Button("Delete", role: .destructive) {
+                                print("Delete")
+                            }
+                    }
                         NavigationLink(destination: EditBikeView(selectedBike: item), isActive: $goToEditBikeView) {
-                                        EmptyView()
+                            EmptyView()
                                     }
                         .hidden()
                     }
