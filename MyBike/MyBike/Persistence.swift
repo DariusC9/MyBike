@@ -79,4 +79,10 @@ struct PersistenceController {
         }
         return []
     }
+    
+    func deleteBike(_ bike: Bike) {
+        let viewContext = container.viewContext
+        viewContext.delete(bike)
+        saveContext()
+    }
 }

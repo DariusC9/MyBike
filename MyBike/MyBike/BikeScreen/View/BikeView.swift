@@ -12,7 +12,7 @@ struct BikeView: View {
     @State private var goToAddBikeView = false
     @State private var goToEditBikeView = false
     @State private var showingAlert = false
-    @State private var bikeName = ""
+    @State private var bikeID: UUID = UUID()
 
     var rides = PersistenceController.shared.fetchRides()
     var bikes = PersistenceController.shared.fetchBikes()
@@ -37,7 +37,8 @@ struct BikeView: View {
                             }
                             Button {
                                 showingAlert.toggle()
-                                bikeName = item.name
+                                bikeID = item.ID
+
                             } label: {
                                     Text("Delete")
                                     Image("icon_delete")
@@ -47,10 +48,11 @@ struct BikeView: View {
                             Image("icon_overflow")
                         }
                         .padding()
-                        .alert("\(bikeName) will be deleted", isPresented: $showingAlert) {
+                        .alert("\(Transformer.shared.fetchBikeName(bikeID)) will be deleted", isPresented: $showingAlert) {
                             Button("Cancel", role: .cancel) { }
                             Button("Delete", role: .destructive) {
-                                print("Delete")
+                                guard let bike = Transformer.shared.fetchBike(from: bikeID) else { return}
+                                PersistenceController.shared.deleteBike(bike)
                             }
                     }
                         NavigationLink(destination: EditBikeView(selectedBike: item), isActive: $goToEditBikeView) {

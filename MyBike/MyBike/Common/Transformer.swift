@@ -35,12 +35,21 @@ class Transformer {
         return allRides
     }
     
-    private func fetchBikeName(_ id: UUID) -> String {
+     func fetchBikeName(_ id: UUID) -> String {
             for bike in bikes {
                 if bike.id == id, let name = bike.name {
                     return name
                 }
             }
         return ""
+    }
+    
+    func fetchBike(from id: UUID) -> Bike? {
+        for bike in bikes {
+            if bike.id == id {
+                return bike
+            }
+        }
+        return nil
     }
 }
