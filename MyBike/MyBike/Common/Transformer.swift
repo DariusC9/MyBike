@@ -22,10 +22,11 @@ class Transformer {
             if let id = ride.id,
                let duration = ride.duration,
                let date = ride.date,
-               let bikeID = ride.bikeId {
+               let bikeID = ride.bikeId,
+               let title = ride.title {
                let bikeName = fetchBikeName(bikeID)
                 allRides.append(RideModel(ID: id,
-                                          title: ride.title,
+                                          title: title,
                                           bikeName: bikeName,
                                           distance: String(ride.distance),
                                           duration: duration,
@@ -44,10 +45,27 @@ class Transformer {
         return ""
     }
     
+    func fetchRideName(_ id: UUID) -> String {
+        for ride in rides {
+            if ride.id == id, let name = ride.title {
+                return name
+            }
+        }
+    return ""
+}
+
     func fetchBike(from id: UUID) -> Bike? {
         for bike in bikes {
             if bike.id == id {
                 return bike
+            }
+        }
+        return nil
+    }
+    func fetchRide(from id: UUID) -> Ride? {
+        for ride in rides {
+            if ride.id == id {
+                return ride
             }
         }
         return nil

@@ -11,7 +11,7 @@ import SwiftUI
 struct RideModel: Hashable {
     
     let ID: UUID
-    let title: String?
+    let title: String
     let bikeName: String
     let distance: String
     let duration: String

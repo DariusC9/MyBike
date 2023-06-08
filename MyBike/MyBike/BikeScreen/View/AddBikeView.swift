@@ -10,12 +10,13 @@ import CoreData
 
 struct AddBikeView: View {
     @Environment(\.managedObjectContext) private var context: NSManagedObjectContext
-
+    @Environment(\.presentationMode) var presentationMode
+    
     @State var bikeNameText: String = ""
     @State var wheelSizeText: String = ""
     @State var serviceInText: String = ""
     @State var defaultBike: Bool = false
-    @Environment(\.presentationMode) var presentationMode
+
     
     @State var bikeNameBorder: Color = .white
     @State var wheelSizeBorder: Color = .white
@@ -39,6 +40,7 @@ struct AddBikeView: View {
                         .tint(Color("appBlueRibbon"))
                     Button(action: {
                         saveBike()
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Add Bike")
                             .foregroundColor(.white)

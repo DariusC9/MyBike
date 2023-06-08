@@ -10,6 +10,9 @@ import SwiftUI
 struct RideCell: View {
     let model: RideModel
     @State var bikeName: String = ""
+    @State var goToEditRideView = false
+    @State var showingAlert = false
+    @State var rideID: UUID = UUID()
     
     var body: some View {
         VStack(spacing: 5) {
@@ -20,18 +23,36 @@ struct RideCell: View {
                                     Circle()
                                         .stroke(Color.white, lineWidth: 2)
                                 )
-                Text("\(model.bikeName)")
+                Text("\(model.title)")
                     .foregroundColor(.white)
                     .font(Fonts.rideTitle)
                 Spacer()
-                Button(action: {
-                    
-                }) {
-                    Text("...")
-                    .foregroundColor(.white)
-                    .font(Fonts.rideTitle)
+                Menu {
+                    Button {
+                        goToEditRideView.toggle()
+                    } label: {
+                            Image("icon_edit")
+                            Text("Edit")
+                    }
+                    Button {
+                        showingAlert.toggle()
+                        rideID = model.ID
+
+                    } label: {
+                            Text("Delete")
+                            Image("icon_delete")
+                    }
+                } label: {
+                    Image("icon_overflow")
                 }
             }
+            .alert("\(Transformer.shared.fetchRideName(rideID)) will be deleted", isPresented: $showingAlert) {
+                Button("Cancel", role: .cancel) { }
+                Button("Delete", role: .destructive) {
+                    guard let ride = Transformer.shared.fetchRide(from: rideID) else { return}
+                    PersistenceController.shared.deleteRide(ride)
+                }
+        }
             .padding(.leading, -5)
             HStack(spacing: 0) {
                 Text("Bike: ")
@@ -69,6 +90,10 @@ struct RideCell: View {
                     .font(Fonts.detailsText)
                 Spacer()
             }
+            NavigationLink(destination: EditRideView(selectedRide: model), isActive: $goToEditRideView) {
+                EmptyView()
+                        }
+            .hidden()
         }
         .padding()
         .background(Color("appCloudBurst"))

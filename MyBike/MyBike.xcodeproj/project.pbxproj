@@ -26,6 +26,7 @@
 		809A16BB2A2525F4006BFE2E /* MyBikeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16BA2A2525F4006BFE2E /* MyBikeTests.swift */; };
 		809A16C52A2525F4006BFE2E /* MyBikeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16C42A2525F4006BFE2E /* MyBikeUITests.swift */; };
 		809A16C72A2525F4006BFE2E /* MyBikeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16C62A2525F4006BFE2E /* MyBikeUITestsLaunchTests.swift */; };
+		80A5BBD42A31F5D100981C55 /* EditRideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A5BBD32A31F5D100981C55 /* EditRideView.swift */; };
 		80A5D7872A272F0800421F35 /* EmptyBikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A5D7862A272F0800421F35 /* EmptyBikeView.swift */; };
 		80A5D7892A27648C00421F35 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A5D7882A27648C00421F35 /* Fonts.swift */; };
 		80A5D78B2A27794B00421F35 /* EmptyRideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A5D78A2A27794B00421F35 /* EmptyRideView.swift */; };
@@ -85,6 +86,7 @@
 		809A16C02A2525F4006BFE2E /* MyBikeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBikeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		809A16C42A2525F4006BFE2E /* MyBikeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeUITests.swift; sourceTree = "<group>"; };
 		809A16C62A2525F4006BFE2E /* MyBikeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		80A5BBD32A31F5D100981C55 /* EditRideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRideView.swift; sourceTree = "<group>"; };
 		80A5D7862A272F0800421F35 /* EmptyBikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyBikeView.swift; sourceTree = "<group>"; };
 		80A5D7882A27648C00421F35 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		80A5D78A2A27794B00421F35 /* EmptyRideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRideView.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				807878F92A2A2D33006302B9 /* RideContentView.swift */,
 				807878FB2A2A309B006302B9 /* RideView.swift */,
 				807878FD2A2A3156006302B9 /* RideCell.swift */,
+				80A5BBD32A31F5D100981C55 /* EditRideView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				807878FA2A2A2D33006302B9 /* RideContentView.swift in Sources */,
 				80A894D42A28BB6200C2EB84 /* CarouselBikeItem.swift in Sources */,
 				8080FC742A264EA900143DA7 /* BikeCell.swift in Sources */,
+				80A5BBD42A31F5D100981C55 /* EditRideView.swift in Sources */,
 				80A5D78B2A27794B00421F35 /* EmptyRideView.swift in Sources */,
 				80232F432A310D1500DCB7FA /* EditBikeView.swift in Sources */,
 				80A894D62A28C36500C2EB84 /* CarouselBiveView.swift in Sources */,

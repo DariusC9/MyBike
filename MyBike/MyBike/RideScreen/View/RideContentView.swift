@@ -65,10 +65,11 @@ struct RideContentView: View {
             if let id = ride.id,
                let duration = ride.duration,
                let date = ride.date,
-               let bikeID = ride.bikeId {
+               let bikeID = ride.bikeId,
+               let title = ride.title {
                let bikeName = fetchBikeName(bikeID)
                 allRides.append(RideModel(ID: id,
-                                          title: ride.title,
+                                          title: title,
                                           bikeName: bikeName,
                                           distance: String(ride.distance),
                                           duration: duration,

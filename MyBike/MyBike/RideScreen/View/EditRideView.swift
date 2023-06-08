@@ -1,22 +1,22 @@
 //
-//  AddRideView.swift
+//  EditRideView.swift
 //  MyBike
 //
-//  Created by Darius Couti on 31.05.2023.
+//  Created by Darius Couti on 08.06.2023.
 //
 
 import SwiftUI
 import CoreData
 
-struct AddRideView: View {
+struct EditRideView: View {
     @Environment(\.managedObjectContext) private var context: NSManagedObjectContext
+    @Environment(\.presentationMode) var presentationMode
     
     @State var textFieldTitle: String = ""
     @State var textFieldDistance: String = ""
     @State var textFieldDuration: String = ""
     @State var textFieldDate: String = ""
-    @Environment(\.presentationMode) var presentationMode
-    
+
     @State var titleBorder: Color = .white
     @State var bikeNameBorder: Color = .white
     @State var distanceBorder: Color = .white
@@ -25,6 +25,8 @@ struct AddRideView: View {
     
     @State var bikesName: [Pair] = []
     @State var selectedBike: Pair = .empty()
+    
+    var selectedRide: RideModel
 
     
     var body: some View {
@@ -69,7 +71,7 @@ struct AddRideView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 VStack {
-                    Text("Add Ride")
+                    Text("Edit Ride")
                         .foregroundColor(.white)
                         .font(Fonts.title)
                 }
@@ -145,38 +147,9 @@ struct AddRideView: View {
     }
 }
 
-    struct AddRideView_Previews: PreviewProvider {
-        static var previews: some View {
-            AddRideView()
-        }
-    }
 
-
-
-struct AddBikeCell: View {
-    
-    var subTitle: String
-    @Binding var textFieldBind: String
-    @Binding var borderColor: Color
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text("\(subTitle)*")
-                .foregroundColor(.white)
-                .font(Fonts.labelText)
-            TextField(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/, text: $textFieldBind, onEditingChanged: { _ in
-                borderColor = .white
-            })
-                .textFieldStyle(.plain)
-                .padding(10)
-                .foregroundColor(.white)
-                .font(Fonts.textField)
-                .frame(maxWidth: .infinity)
-                .background(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(borderColor, lineWidth: 1)
-                        .background(Color("appCloudBurst"))
-                )
-        }
+struct EditRideView_Previews: PreviewProvider {
+    static var previews: some View {
+        EditRideView(selectedRide: RideModel.testRide())
     }
 }
