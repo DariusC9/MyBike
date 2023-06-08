@@ -38,7 +38,6 @@ struct EditBikeView: View {
                     Toggle("Default Bike", isOn: $defaultBike)
                         .tint(Color("appBlueRibbon"))
                     Button(action: {
-                        deleteBike()
                         editBike()
                     }) {
                         Text("Save")
@@ -103,9 +102,10 @@ struct EditBikeView: View {
         if shouldNotSave {
             return
         }
-        
+        let savedId = selectedBike.ID
+        deleteBike()
         let newBike = Bike(context: context)
-        newBike.id = selectedBike.ID
+        newBike.id = savedId
         newBike.name = bikeNameText
         newBike.distance = service ?? 0
         newBike.wheelSize = wheelSize ?? 0
@@ -113,9 +113,10 @@ struct EditBikeView: View {
         newBike.color = selectedBike.color
 
         PersistenceController.shared.saveContext()
+        presentationMode.wrappedValue.dismiss()
     }
     private func deleteBike() {
-        var bikes = PersistenceController.shared.fetchBikes()
+        let bikes = PersistenceController.shared.fetchBikes()
         
         for bike in bikes {
             if bike.id == selectedBike.ID {
