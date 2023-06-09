@@ -26,7 +26,7 @@ struct BikeView: View {
             List(bikeList, id: \.self) { item in
                 ZStack {
                     BikeCell(model: item)
-                    NavigationLink(destination: BikeDetailsView(model: item, allRides: Transformer.shared.convertToRideModel(from: rides))) {
+                    NavigationLink(destination: BikeDetailsView(model: item, allRides: Transformer.shared.convertToBikesRideModel(from: rides, using: item.ID))) {
                         EmptyView()
                     }
                     .buttonStyle(PlainButtonStyle())
@@ -74,6 +74,10 @@ struct BikeView: View {
                 .background(.black)
             }
         }
+        .onAppear(perform: {
+            rides = PersistenceController.shared.fetchRides()
+            bikes = PersistenceController.shared.fetchBikes()
+        })
         .scrollContentBackground(.hidden)
         .listStyle(.plain)
         .navigationBarBackButtonHidden(true)

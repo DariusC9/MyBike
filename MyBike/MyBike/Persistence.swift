@@ -80,6 +80,19 @@ struct PersistenceController {
         return []
     }
     
+    func fetchBikesRides(for bikeID: UUID) -> [Ride] {
+        let viewContext = container.viewContext
+        var rides: [Ride] = []
+        let fetchRequest: NSFetchRequest<Ride> = Ride.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "bike.ID == %@", bikeID as CVarArg)
+        do {
+            rides = try viewContext.fetch(fetchRequest)
+        } catch {
+            print("Failed to fetch rides: \(error)")
+        }
+        return rides
+    }
+    
     func fetchDefaulBike() -> Bike? {
         let bikes = fetchBikes()
         for bike in bikes {

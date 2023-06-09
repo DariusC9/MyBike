@@ -25,10 +25,10 @@ struct DropDownMenuDefaultBike: View {
                 VStack {
                     ForEach(options, id: \.id) { option in
                         Button(action: {
+                            PersistenceController.shared.defaultBikeIsChanged()
                             if let selectedBikeID = option.id {
                                 defaultBike = Transformer.shared.fetchBike(from: selectedBikeID)
                             }
-                            PersistenceController.shared.defaultBikeIsChanged()
                             defaultBike?.defaultBike = true
                             PersistenceController.shared.saveContext()
                         }, label: {

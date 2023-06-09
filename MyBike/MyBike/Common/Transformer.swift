@@ -16,21 +16,24 @@ class Transformer {
     private var rides: [Ride] = PersistenceController.shared.fetchRides()
     
     
-    func convertToRideModel(from rides: [Ride]) -> [RideModel] {
+    func convertToBikesRideModel(from rides: [Ride], using bikeID: UUID) -> [RideModel] {
         var allRides = [RideModel]()
+        var bike = fetchBike(from: bikeID)
         for ride in rides {
-            if let id = ride.id,
-               let duration = ride.duration,
-               let date = ride.date,
-               let bikeID = ride.bikeId,
-               let title = ride.title {
-               let bikeName = fetchBikeName(bikeID)
-                allRides.append(RideModel(ID: id,
-                                          title: title,
-                                          bikeName: bikeName,
-                                          distance: String(ride.distance),
-                                          duration: duration,
-                                          Date: date))
+            if ride.bikeRelationship == bike {
+                if let id = ride.id,
+                   let duration = ride.duration,
+                   let date = ride.date,
+                   let bikeID = ride.bikeId,
+                   let title = ride.title {
+                    let bikeName = fetchBikeName(bikeID)
+                    allRides.append(RideModel(ID: id,
+                                              title: title,
+                                              bikeName: bikeName,
+                                              distance: String(ride.distance),
+                                              duration: duration,
+                                              Date: date))
+                }
             }
         }
         return allRides
