@@ -30,12 +30,12 @@ struct AddRideView: View {
     var body: some View {
 
         VStack(spacing: 20) {
-            AddBikeCell(subTitle: "Ride Title", textFieldBind: $textFieldTitle, borderColor: $titleBorder)
+            AddBikeCell(subTitle: "Ride Title", textFieldBind: $textFieldTitle, borderColor: $titleBorder, placeholder: "Add Ride Title")
             DropdownView(selectedOption: $selectedBike, subTitle: "Bike", borderColor: $bikeNameBorder, options: bikesName)
                 .padding(.horizontal, -10)
-            AddBikeCell(subTitle: "Distance", textFieldBind: $textFieldDistance, borderColor: $distanceBorder)
-            AddBikeCell(subTitle: "Duration", textFieldBind: $textFieldDuration, borderColor: $durationBorder)
-            AddBikeCell(subTitle: "Date", textFieldBind: $textFieldDate, borderColor: $dateBorder)
+            AddBikeCell(subTitle: "Distance", textFieldBind: $textFieldDistance, borderColor: $distanceBorder, placeholder: "Add Ride Distance")
+            AddBikeCell(subTitle: "Duration", textFieldBind: $textFieldDuration, borderColor: $durationBorder, placeholder: "Add Ride Duration")
+            AddBikeCell(subTitle: "Date", textFieldBind: $textFieldDate, borderColor: $dateBorder, placeholder: "Add Ride Date")
             Button(action: {
                 saveRide()
                 presentationMode.wrappedValue.dismiss()
@@ -158,20 +158,31 @@ struct AddBikeCell: View {
     var subTitle: String
     @Binding var textFieldBind: String
     @Binding var borderColor: Color
+    var placeholder: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text("\(subTitle)*")
                 .foregroundColor(.white)
                 .font(Fonts.labelText)
-            TextField(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/, text: $textFieldBind, onEditingChanged: { _ in
-                borderColor = .white
-            })
-                .textFieldStyle(.plain)
-                .padding(10)
-                .foregroundColor(.white)
-                .font(Fonts.textField)
-                .frame(maxWidth: .infinity)
+            ZStack(alignment: .leading) {
+                    if textFieldBind.isEmpty {
+                        Text(placeholder)
+                            .foregroundColor(.white)
+                            .font(Fonts.textField)
+                            .opacity(0.7)
+                            .padding(.leading, 10)
+                    }
+                    TextField("", text: $textFieldBind, onEditingChanged: { isEditing in
+                        if isEditing {
+                            borderColor = .white
+                        }
+                    })
+                    .foregroundColor(.white)
+                    .font(Fonts.textField)
+                    .frame(maxWidth: .infinity)
+                    .padding(10)
+                }
                 .background(
                     RoundedRectangle(cornerRadius: 5)
                         .stroke(borderColor, lineWidth: 1)
