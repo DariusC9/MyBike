@@ -12,6 +12,7 @@ struct BikeView: View {
     @State private var goToAddBikeView = false
     @State private var goToEditBikeView = false
     @State private var showingAlert = false
+    @State private var selectedBike: BikeModel? = nil
     @State private var bikeID: UUID = UUID()
 
     var rides = PersistenceController.shared.fetchRides()
@@ -27,9 +28,9 @@ struct BikeView: View {
                     ZStack(alignment: .topTrailing) {
                         BikeCell(model: item)
                             .padding(.top, 15)
-                        
                         Menu {
                             Button {
+                                selectedBike = item
                                 goToEditBikeView.toggle()
                             } label: {
                                     Image("icon_edit")
@@ -55,7 +56,7 @@ struct BikeView: View {
                                 PersistenceController.shared.deleteBike(bike)
                             }
                     }
-                        NavigationLink(destination: EditBikeView(selectedBike: item), isActive: $goToEditBikeView) {
+                        NavigationLink(destination: EditBikeView(defaultBike: Transformer.shared.defaultBikeBool(from: selectedBike ?? item, bikes), selectedBike: selectedBike ?? item), isActive: $goToEditBikeView) {
                             EmptyView()
                                     }
                         .hidden()

@@ -91,4 +91,13 @@ struct PersistenceController {
         viewContext.delete(ride)
         saveContext()
     }
+    
+    func defaultBikeIsChanged() {
+        let bikes = fetchBikes()
+        for bike in bikes {
+            bike.defaultBike = false
+        }
+        saveContext()
+        
+    }
 }

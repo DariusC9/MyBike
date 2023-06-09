@@ -37,6 +37,8 @@ struct AddBikeView: View {
                     AddBikeCell(subTitle: "Wheel Size", textFieldBind: $wheelSizeText, borderColor: $wheelSizeBorder, placeholder: "Add wheels size")
                     AddBikeCell(subTitle: "Service in", textFieldBind: $serviceInText, borderColor: $serviceBorder, placeholder: "Add service for bike")
                     Toggle("Default Bike", isOn: $defaultBike)
+                        .foregroundColor(.white)
+                        .font(Fonts.labelTextRide)
                         .tint(Color("appBlueRibbon"))
                     Button(action: {
                         saveBike()
@@ -103,10 +105,14 @@ struct AddBikeView: View {
         if shouldNotSave {
             return
         }
+        if defaultBike {
+            PersistenceController.shared.defaultBikeIsChanged()
+        }
         
         let newBike = Bike(context: context)
         newBike.id = UUID()
         newBike.name = bikeNameText
+        newBike.defaultBike = defaultBike
         newBike.distance = service ?? 0
         newBike.wheelSize = wheelSize ?? 0
         newBike.type = bikeType.rawValue

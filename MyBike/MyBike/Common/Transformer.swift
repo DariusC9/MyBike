@@ -62,6 +62,7 @@ class Transformer {
         }
         return nil
     }
+    
     func fetchRide(from id: UUID) -> Ride? {
         for ride in rides {
             if ride.id == id {
@@ -69,5 +70,15 @@ class Transformer {
             }
         }
         return nil
+    }
+    
+    func defaultBikeBool(from item: BikeModel, _ bikes: [Bike]) -> Bool {
+        let name = item.name
+        for bike in bikes {
+            if bike.name == name {
+                return bike.defaultBike
+            }
+        }
+        return false
     }
 }

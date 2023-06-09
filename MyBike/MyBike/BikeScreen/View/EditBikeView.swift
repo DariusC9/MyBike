@@ -14,7 +14,7 @@ struct EditBikeView: View {
     @State var bikeNameText: String = ""
     @State var wheelSizeText: String = ""
     @State var serviceInText: String = ""
-    @State var defaultBike: Bool = false
+    @State var defaultBike: Bool
     @Environment(\.presentationMode) var presentationMode
     
     @State var bikeNameBorder: Color = .white
@@ -36,6 +36,7 @@ struct EditBikeView: View {
                     AddBikeCell(subTitle: "Wheel Size", textFieldBind: $wheelSizeText, borderColor: $wheelSizeBorder, placeholder: String(selectedBike.wheelSize))
                     AddBikeCell(subTitle: "Service in", textFieldBind: $serviceInText, borderColor: $serviceBorder, placeholder: String(selectedBike.distance))
                     Toggle("Default Bike", isOn: $defaultBike)
+                        .foregroundColor(.white)
                         .tint(Color("appBlueRibbon"))
                     Button(action: {
                         editBike()
@@ -102,11 +103,15 @@ struct EditBikeView: View {
         if shouldNotSave {
             return
         }
+        if defaultBike {
+            PersistenceController.shared.defaultBikeIsChanged()
+        }
         let savedId = selectedBike.ID
         deleteBike()
         let newBike = Bike(context: context)
         newBike.id = savedId
         newBike.name = bikeNameText
+        newBike.defaultBike = defaultBike
         newBike.distance = service ?? 0
         newBike.wheelSize = wheelSize ?? 0
         newBike.type = bikeType.rawValue
@@ -129,6 +134,6 @@ struct EditBikeView: View {
 
 struct EditBikeView_Previews: PreviewProvider {
     static var previews: some View {
-        EditBikeView(selectedBike: .testBike())
+        EditBikeView(defaultBike: false, selectedBike: .testBike())
     }
 }
