@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Bike" representedClassName="Bike" syncable="YES" codeGenerationType="class">
         <attribute name="color" attributeType="String"/>
         <attribute name="defaultBike" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -8,6 +8,7 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="type" attributeType="String"/>
         <attribute name="wheelSize" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="ridesRelationship" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Ride" inverseName="bikeRelationship" inverseEntity="Ride"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -19,5 +20,6 @@
         <attribute name="duration" attributeType="String"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="title" attributeType="String"/>
+        <relationship name="bikeRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bike" inverseName="ridesRelationship" inverseEntity="Bike"/>
     </entity>
 </model>

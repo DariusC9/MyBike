@@ -121,9 +121,9 @@ struct EditRideView: View {
         if shouldNotSave {
             return
         }
+        
         let savedId = selectedRide.ID
         deleteRide()
-        
         let newRide = Ride(context: context)
         newRide.id = savedId
         newRide.bikeId = selectedBike.id
@@ -133,7 +133,9 @@ struct EditRideView: View {
         }
         newRide.duration = textFieldDuration
         newRide.date = textFieldDate
-        
+        if let id = selectedBike.id {
+            newRide.bikeRelationship = Transformer.shared.fetchBike(from: id)
+        }
         PersistenceController.shared.saveContext()
         presentationMode.wrappedValue.dismiss()
     }

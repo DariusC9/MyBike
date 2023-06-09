@@ -38,7 +38,6 @@ struct AddRideView: View {
             AddBikeCell(subTitle: "Date", textFieldBind: $textFieldDate, borderColor: $dateBorder, placeholder: "Add Ride Date")
             Button(action: {
                 saveRide()
-                presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Add Ride")
                     .foregroundColor(.white)
@@ -130,7 +129,11 @@ struct AddRideView: View {
         }
         newRide.duration = textFieldDuration
         newRide.date = textFieldDate
+        if let id = selectedBike.id {
+            newRide.bikeRelationship = Transformer.shared.fetchBike(from: id)
+        }
         PersistenceController.shared.saveContext()
+        presentationMode.wrappedValue.dismiss()
     }
     
     private func checkDate(_ date: String) -> Bool {
