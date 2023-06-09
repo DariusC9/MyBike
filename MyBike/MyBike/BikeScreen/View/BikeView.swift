@@ -15,8 +15,8 @@ struct BikeView: View {
     @State private var selectedBike: BikeModel? = nil
     @State private var bikeID: UUID = UUID()
 
-    var rides = PersistenceController.shared.fetchRides()
-    var bikes = PersistenceController.shared.fetchBikes()
+    @State var rides = PersistenceController.shared.fetchRides()
+    @State var bikes = PersistenceController.shared.fetchBikes()
     
     var bikeList: [BikeModel]
     

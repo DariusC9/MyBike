@@ -80,6 +80,16 @@ struct PersistenceController {
         return []
     }
     
+    func fetchDefaulBike() -> Bike? {
+        let bikes = fetchBikes()
+        for bike in bikes {
+            if bike.defaultBike {
+                return bike
+            }
+        }
+        return nil
+    }
+    
     func deleteBike(_ bike: Bike) {
         let viewContext = container.viewContext
         viewContext.delete(bike)

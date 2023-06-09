@@ -82,7 +82,7 @@ struct SettingsView: View {
     @State private var isToggleOn = false
     @State var borderColor = Color.white
     @State var selectedOption: Pair = .empty()
-    
+
     
     var body: some View {
         VStack(spacing: 20) {
@@ -115,10 +115,11 @@ struct SettingsView: View {
                 }
             }
             .padding(.horizontal, 10)
-            DropdownView(selectedOption: $selectedOption, subTitle: "Default Bike", borderColor: $borderColor, options: [Pair(id: UUID(), name: "Option 1"), Pair(id: UUID(), name: "Option 2")])
+            DropDownMenuDefaultBike()
             Spacer()
             
         }
+
         .padding(.top, 20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("appMirage"))
