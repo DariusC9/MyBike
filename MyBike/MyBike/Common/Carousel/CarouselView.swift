@@ -39,7 +39,7 @@ struct CarouselView: View {
     @Binding var bikeType: BikeType
     
     var body: some View {
-        VStack {
+        VStack(spacing: 30) {
             createColorCarousel()
             createBikeCarousel()
         }
@@ -148,3 +148,9 @@ struct CarouselView: View {
         return item.bikeType.getTag() == selectedImageIndex
     }
 }
+
+//struct CarouselView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CarouselView(color: <#Binding<String>#>, bikeType: <#Binding<BikeType>#>)
+//    }
+//}

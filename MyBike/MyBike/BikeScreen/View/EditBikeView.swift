@@ -54,7 +54,6 @@ struct EditBikeView: View {
                 .padding(.horizontal, 10)
             }
         }
-        .edgesIgnoringSafeArea(.bottom)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(trailing:
                                 Button(action: {
