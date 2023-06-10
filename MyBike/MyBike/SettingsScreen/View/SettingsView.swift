@@ -86,7 +86,7 @@ struct SettingsView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            DropdownView(selectedOption: $selectedOption, subTitle: "Distance Units*", borderColor: $borderColor, options: [Pair(id: UUID(), name: "KM"), Pair(id: UUID(), name: "Miles")])
+            DropDownMenuDistanceUnits()
             VStack (alignment: .leading, spacing: 5){
                 
                 Text("Service Reminder")

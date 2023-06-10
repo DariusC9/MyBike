@@ -26,6 +26,7 @@
 		809A16BB2A2525F4006BFE2E /* MyBikeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16BA2A2525F4006BFE2E /* MyBikeTests.swift */; };
 		809A16C52A2525F4006BFE2E /* MyBikeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16C42A2525F4006BFE2E /* MyBikeUITests.swift */; };
 		809A16C72A2525F4006BFE2E /* MyBikeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A16C62A2525F4006BFE2E /* MyBikeUITestsLaunchTests.swift */; };
+		80A19F6C2A344D1C00D1B082 /* DropDownMenuDistanceUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A19F6B2A344D1C00D1B082 /* DropDownMenuDistanceUnits.swift */; };
 		80A5BBD42A31F5D100981C55 /* EditRideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A5BBD32A31F5D100981C55 /* EditRideView.swift */; };
 		80A5D7872A272F0800421F35 /* EmptyBikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A5D7862A272F0800421F35 /* EmptyBikeView.swift */; };
 		80A5D7892A27648C00421F35 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A5D7882A27648C00421F35 /* Fonts.swift */; };
@@ -87,6 +88,7 @@
 		809A16C02A2525F4006BFE2E /* MyBikeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBikeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		809A16C42A2525F4006BFE2E /* MyBikeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeUITests.swift; sourceTree = "<group>"; };
 		809A16C62A2525F4006BFE2E /* MyBikeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		80A19F6B2A344D1C00D1B082 /* DropDownMenuDistanceUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuDistanceUnits.swift; sourceTree = "<group>"; };
 		80A5BBD32A31F5D100981C55 /* EditRideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRideView.swift; sourceTree = "<group>"; };
 		80A5D7862A272F0800421F35 /* EmptyBikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyBikeView.swift; sourceTree = "<group>"; };
 		80A5D7882A27648C00421F35 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			children = (
 				807878F22A29DDCE006302B9 /* SettingsView.swift */,
 				80AF07852A331B7A00DF5F62 /* DropDownMenuDefaultBike.swift */,
+				80A19F6B2A344D1C00D1B082 /* DropDownMenuDistanceUnits.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				80A894CF2A28ACAC00C2EB84 /* CarouselColorItemView.swift in Sources */,
 				80A894CC2A28A46900C2EB84 /* AddBikeView.swift in Sources */,
 				807878EC2A29CC51006302B9 /* CarouselConstants.swift in Sources */,
+				80A19F6C2A344D1C00D1B082 /* DropDownMenuDistanceUnits.swift in Sources */,
 				8080FC762A267F4400143DA7 /* BikeModel.swift in Sources */,
 				80BDF71D2A2F3B8600511E50 /* Pair.swift in Sources */,
 				80BDF71F2A2F6E6000511E50 /* BikeDetailsView.swift in Sources */,
