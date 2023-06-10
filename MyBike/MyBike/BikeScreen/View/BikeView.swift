@@ -111,11 +111,11 @@ struct BikeView: View {
         .padding(.horizontal, 10)
         .background(.black)
     }
-    
+}
     struct BikeView_Previews: PreviewProvider {
         static var previews: some View {
             BikeView(bikeList: [BikeModel.testBike()])
         }
     }
-}
+
 

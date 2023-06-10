@@ -20,6 +20,8 @@ struct CustomTabBar: View {
         appearance.configureWithTransparentBackground()
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
+        
+        
     }
     
     var body: some View {

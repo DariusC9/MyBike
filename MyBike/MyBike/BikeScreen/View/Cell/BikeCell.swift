@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BikeCell: View {
-    let model: BikeModel 
+    let model: BikeModel
     
     var body: some View {
         
@@ -19,12 +19,12 @@ struct BikeCell: View {
             VStack {
                 ZStack {
                     Image(model.bikeImages.wheelImageName)
-                                .scaleEffect(1.75)
+                        .scaleEffect(1.75)
                     Image(model.bikeImages.middleImageName)
-                                .scaleEffect(1.75)
-                                .colorMultiply(Color(model.color))
+                        .scaleEffect(1.75)
+                        .colorMultiply(Color(model.color))
                     Image(model.bikeImages.topImageName)
-                                .scaleEffect(1.75)
+                        .scaleEffect(1.75)
                 }
                 HStack {
                     VStack(alignment: .leading) {
@@ -49,7 +49,7 @@ struct BikeCell: View {
                         .resizable()
                         .frame(width: 230, height: 4)
                     Image("loading_circle")
-                        
+                    
                     Image("loading_bolt")
                         .offset(x: 350)
                     Image("loading_wrench")
@@ -60,11 +60,11 @@ struct BikeCell: View {
         }
         
     }
-    
+}
     struct BikeCell_Previews: PreviewProvider {
         static var previews: some View {
             BikeCell(model: .testBike()).frame(width: 150, height: 150)
         }
     }
     
-}
+

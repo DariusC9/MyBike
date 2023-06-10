@@ -34,9 +34,9 @@ struct BikeContentView: View {
                                           name: name,
                                           distance: Double(bike.distance),
                                           wheelSize: Double(bike.wheelSize),
-                                          bikeImages: BikeModel.BikeImages(topImageName: "bike_electric_over",
-                                                                 middleImageName: "bike_electric_middle",
-                                                                 wheelImageName: "bike_electric_small_wheels")))
+                                          bikeImages: BikeModel.BikeImages(topImageName: "bike_\(bike.type ?? "electric")_over",
+                                                                 middleImageName: "bike_\(bike.type ?? "electric")_middle",
+                                                                 wheelImageName: "bike_\(bike.type ?? "electric")_small_wheels")))
             }
         }
         return allBikes

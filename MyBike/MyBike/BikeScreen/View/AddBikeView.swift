@@ -122,9 +122,9 @@ struct AddBikeView: View {
     }
 }
     
-    struct AddBikeView_Previews: PreviewProvider {
-        static var previews: some View {
-            AddBikeView(bikeNameText: "Placeholder", wheelSizeText: "Placeholder", serviceInText: "Placeholder", defaultBike: true)
-        }
+struct AddBikeView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddBikeView(bikeNameText: "Placeholder", wheelSizeText: "Placeholder", serviceInText: "Placeholder", defaultBike: true)
     }
+}
 
