@@ -55,7 +55,7 @@ struct EmptyRideView: View {
                         }) {
                             Text("Add Ride")
                                 .foregroundColor(.white)
-                                .font(.headline)
+                                .font(Fonts.buttonText)
                                 .padding(.horizontal, 5)
                                 .frame(maxWidth: .infinity, minHeight: 44)
                                 .background(Color.blue)
