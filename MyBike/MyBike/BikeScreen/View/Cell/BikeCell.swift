@@ -44,18 +44,18 @@ struct BikeCell: View {
                 ZStack(alignment: .leading) {
                     Image("loading_bar")
                         .resizable()
-                        .frame(width: 350, height: 4)
+                        .frame(width: 300, height: 4)
                     Image("loading_over")
                         .resizable()
                         .frame(width: 230, height: 4)
                     Image("loading_circle")
                     
                     Image("loading_bolt")
-                        .offset(x: 350)
+                        .offset(x: 300)
                     Image("loading_wrench")
                         .offset(x: 230)
                 }
-                .padding(.top, 20)
+                .padding(.top, 10)
             }
         }
         
@@ -63,7 +63,7 @@ struct BikeCell: View {
 }
     struct BikeCell_Previews: PreviewProvider {
         static var previews: some View {
-            BikeCell(model: .testBike()).frame(width: 150, height: 150)
+            BikeCell(model: .testBike())
         }
     }
     

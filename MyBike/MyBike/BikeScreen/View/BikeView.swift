@@ -74,10 +74,10 @@ struct BikeView: View {
                 .background(.black)
             }
         }
-        .onAppear(perform: {
-            rides = PersistenceController.shared.fetchRides()
-            bikes = PersistenceController.shared.fetchBikes()
-        })
+//        .onAppear(perform: {
+//            rides = PersistenceController.shared.fetchRides()
+//            bikes = PersistenceController.shared.fetchBikes()
+//        })
         .scrollContentBackground(.hidden)
         .listStyle(.plain)
         .navigationBarBackButtonHidden(true)
