@@ -10,12 +10,12 @@ import CoreData
 
 struct EditBikeView: View {
     @Environment(\.managedObjectContext) private var context: NSManagedObjectContext
-
+    @Environment(\.presentationMode) var presentationMode
+    
     @State var bikeNameText: String = ""
     @State var wheelSizeText: String = ""
     @State var serviceInText: String = ""
     @State var defaultBike: Bool
-    @Environment(\.presentationMode) var presentationMode
     
     @State var bikeNameBorder: Color = .white
     @State var wheelSizeBorder: Color = .white

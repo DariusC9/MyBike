@@ -62,7 +62,7 @@ struct BikeDetailsView: View {
                 VStack(alignment: .leading) {
                     Text("Rides: \(allRides.count)")
                         .font(Fonts.labelTextRide)
-                    Text("Total Rides Distance: \(calculateBikesDistance())km")
+                    Text("Total Rides Distance: \(Helper.shared.getTotalDistance(for: model.ID))km")
                         .font(Fonts.labelTextRide)
                 }
                 .foregroundColor(.white)
@@ -87,20 +87,6 @@ struct BikeDetailsView: View {
             }
             .background(Color("appMirage"))
         }
-//        .navigationBarItems(
-//            leading: NavigationLink(destination: AddBikeView(), isActive: $goToAddBikeView) {
-//            },
-//            trailing: Button(action: {
-//                goToAddBikeView.toggle()
-//            }) {
-//                HStack {
-//                    Image("icon_add")
-//                    Text("Add Bike")
-//                        .foregroundColor(.blue)
-//                        .font(Fonts.navBar)
-//                }
-//            }
-//        )
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
@@ -114,16 +100,6 @@ struct BikeDetailsView: View {
         }
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbarBackground(Color(.black), for: .navigationBar)
-    }
-    
-    private func calculateBikesDistance() -> Int {
-        var distance = 0
-        for ride in allRides {
-            if ride.bikeName == model.name, let rideDistance = Int(ride.distance) {
-                distance += rideDistance
-            }
-        }
-        return distance
     }
 }
 
