@@ -26,18 +26,20 @@ struct DropDownMenuDistanceUnits: View {
                 VStack {
                     Button(action: {
                         menuLabelText = kmText
+                        Helper.shared.saveDistanceUnitsType(true)
                     }, label: {
                         Text(kmText)
                     })
                     Button(action: {
                         menuLabelText = milesText
+                        Helper.shared.saveDistanceUnitsType(false)
                     }, label: {
                         Text(milesText)
                     })
                 }
             } label: {
                 HStack {
-                    Text("Button")
+                    Text(Helper.shared.shouldShowInKm() ? kmText : milesText)
                         .foregroundColor(.white)
                         .font(Fonts.textField)
                         .padding()

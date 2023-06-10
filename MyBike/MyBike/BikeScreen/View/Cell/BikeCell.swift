@@ -43,7 +43,7 @@ struct BikeCell: View {
                     .font(Fonts.rideTitle)
                 Text("Wheels: \(model.wheelSize)\"")
                     .font(Fonts.labelTextRide)
-                Text("Service in: \(model.distance)km")
+                Text("Service in: \(Helper.shared.getDistanceWithUnit(model.distance))")
                     .font(Fonts.labelTextRide)
             }
             .foregroundColor(.white)

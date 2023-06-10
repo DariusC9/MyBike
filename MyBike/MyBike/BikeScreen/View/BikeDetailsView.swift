@@ -61,7 +61,7 @@ struct BikeDetailsView: View {
             VStack(alignment: .leading) {
                 Text("Wheels: \(model.wheelSize)\"")
                     .font(Fonts.labelTextRide)
-                Text("Service in: \(model.distance)km")
+                Text("Service in: \(Helper.shared.getDistanceWithUnit(model.distance))")
                     .font(Fonts.labelTextRide)
             }
             .foregroundColor(.white)
@@ -96,7 +96,7 @@ struct BikeDetailsView: View {
             VStack(alignment: .leading) {
                 Text("Rides: \(allRides.count)")
                     .font(Fonts.labelTextRide)
-                Text("Total Rides Distance: \(Helper.shared.getTotalDistance(for: model.ID))km")
+                Text("Total Rides Distance: \(Helper.shared.getDistanceWithUnit(Helper.shared.getTotalDistance(for: model.ID)))")
                     .font(Fonts.labelTextRide)
             }
             .foregroundColor(.white)

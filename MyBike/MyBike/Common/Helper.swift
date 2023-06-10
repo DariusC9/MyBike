@@ -56,11 +56,11 @@ struct Helper {
         return distance/service < 1 ? distance/service : 1
     }
     
-    func getTotalDistance(for bikeID: UUID) -> Int {
-        var distance = 0
+    func getTotalDistance(for bikeID: UUID) -> Double {
+        var distance: Double = 0
         for ride in PersistenceController.shared.fetchRides() {
             if ride.bikeId == bikeID {
-                distance += Int(ride.distance)
+                distance += Double(ride.distance)
             }
         }
         return distance
@@ -145,5 +145,29 @@ struct Helper {
             }
         }
         return count
+    }
+    
+    // MARK: - Settings
+    
+    func convertFromKmToMiles(_ km: Double) -> Double {
+        return km / 1.609
+    }
+    
+    func saveDistanceUnitsType(_ isKm: Bool) {
+        UserDefaults().setValue(isKm, forKey: "isKm")
+    }
+    
+    func shouldShowInKm() -> Bool {
+        if let isKm = UserDefaults().value(forKey: "isKm") as? Bool {
+            return isKm
+        }
+        return true
+    }
+    
+    func getDistanceWithUnit(_ distance: Double) -> String {
+        if shouldShowInKm() {
+            return "\(distance) km"
+        }
+        return "\(convertFromKmToMiles(distance)) miles"
     }
 }
