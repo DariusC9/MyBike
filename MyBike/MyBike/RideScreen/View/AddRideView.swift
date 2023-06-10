@@ -25,6 +25,7 @@ struct AddRideView: View {
     
     @State var bikesName: [Pair] = []
     @State var selectedBike: Pair = .empty()
+    @State var showAlert = false
 
     
     var body: some View {
@@ -45,6 +46,9 @@ struct AddRideView: View {
                     .frame(maxWidth: .infinity, minHeight: 35)
                     .background(Color.blue)
                     .cornerRadius(5)
+            }
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Can't save ride"), message: Text("You can't save a ride if you don't select a bike or you did not saved a bike first"), dismissButton: .cancel(Text("Ok")))
             }
             .padding(.top, 20)
             Spacer()
@@ -114,6 +118,7 @@ struct AddRideView: View {
             }
         }
         if selectedBike.name == nil {
+            showAlert = true
             shouldNotSave = true
         }
         if shouldNotSave {

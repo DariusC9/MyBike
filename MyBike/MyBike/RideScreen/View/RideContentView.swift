@@ -13,7 +13,7 @@ struct RideContentView: View {
     
     @FetchRequest(entity: Ride.entity(), sortDescriptors: []) private var rides: FetchedResults<Ride>
     
-    private var bikes = PersistenceController.shared.fetchBikes()
+    @State private var bikes = PersistenceController.shared.fetchBikes()
     
     @State private var statistics: [StatisticsData] = []
     

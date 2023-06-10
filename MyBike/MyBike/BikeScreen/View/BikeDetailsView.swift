@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct BikeDetailsView: View {
-    var model: BikeModel
-    var allRides: [RideModel]
+    @State var model: BikeModel
+    @State var allRides: [RideModel]
     
     var body: some View {
         VStack(spacing: 0) {

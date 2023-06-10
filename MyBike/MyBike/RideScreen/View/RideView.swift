@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct RideView: View {
-    var allRides: [RideModel]
-    var allStatistics: [StatisticsData]
+    @State var allRides: [RideModel]
+    @State var allStatistics: [StatisticsData]
     @State private var goToAddRideView = false
     
     var body: some View {

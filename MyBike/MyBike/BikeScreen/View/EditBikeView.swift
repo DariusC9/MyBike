@@ -106,9 +106,11 @@ struct EditBikeView: View {
             PersistenceController.shared.defaultBikeIsChanged()
         }
         let savedId = selectedBike.ID
+        let oldBike = Transformer.shared.fetchBike(from: savedId)
         deleteBike()
         let newBike = Bike(context: context)
         newBike.id = savedId
+        newBike.ridesRelationship = oldBike?.ridesRelationship
         newBike.name = bikeNameText
         newBike.defaultBike = defaultBike
         newBike.distance = service ?? 0

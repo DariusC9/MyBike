@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RideCell: View {
-    let model: RideModel
+    @State var model: RideModel
     @State var bikeName: String = ""
     @State var goToEditRideView = false
     @State var showingAlert = false

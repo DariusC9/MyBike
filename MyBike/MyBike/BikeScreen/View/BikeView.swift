@@ -18,7 +18,7 @@ struct BikeView: View {
     @State var rides = PersistenceController.shared.fetchRides()
     @State var bikes = PersistenceController.shared.fetchBikes()
     
-    var bikeList: [BikeModel]
+    @State var bikeList: [BikeModel]
     
     var body: some View {
         
