@@ -59,7 +59,7 @@ struct BikeDetailsView: View {
     private func createDetails() -> some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Wheels: \(model.wheelSize)\"")
+                Text("Wheels: \(String(format: "%.2f", model.wheelSize))\"")
                     .font(Fonts.labelTextRide)
                 Text("Service in: \(Helper.shared.getDistanceWithUnit(model.distance))")
                     .font(Fonts.labelTextRide)

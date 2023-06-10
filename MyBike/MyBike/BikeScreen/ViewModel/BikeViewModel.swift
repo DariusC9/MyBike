@@ -10,12 +10,9 @@ import SwiftUI
 import CoreData
 
 class BikeViewModel: ObservableObject {
-    @Environment(\.managedObjectContext) private var context: NSManagedObjectContext
-    @FetchRequest(entity: Bike.entity(), sortDescriptors: []) private var bikes: FetchedResults<Bike>
     
     @Published var rides: [Ride]
-    
-    @State var bikeModels: [BikeModel]
+    @Published var bikeModels: [BikeModel]
     
     init() {
         let allBikes = PersistenceController.shared.fetchBikes()
@@ -29,7 +26,8 @@ class BikeViewModel: ObservableObject {
     }
     
     private func updateBikeModels() {
-        bikeModels = Helper.shared.convertToBikeModels(bikes.reversed())
+        self.bikeModels = Helper.shared.convertToBikeModels(PersistenceController.shared.fetchBikes())
+        objectWillChange.send()
     }
 }
 

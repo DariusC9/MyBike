@@ -173,8 +173,10 @@ struct Helper {
     
     func getDistanceWithUnit(_ distance: Double) -> String {
         if shouldShowInKm() {
-            return "\(distance) km"
+            let distanceString =  String(format: "%.2f", distance)
+            return "\(distanceString) km"
         }
-        return "\(convertFromKmToMiles(distance)) miles"
+        let distanceString =  String(format: "%.2f", convertFromKmToMiles(distance))
+        return "\(distanceString) miles"
     }
 }
