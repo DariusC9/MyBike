@@ -10,12 +10,12 @@ import CoreData
 
 struct AddRideView: View {
     @Environment(\.managedObjectContext) private var context: NSManagedObjectContext
+    @Environment(\.presentationMode) var presentationMode
     
     @State var textFieldTitle: String = ""
     @State var textFieldDistance: String = ""
     @State var textFieldDuration: String = ""
     @State var textFieldDate: String = ""
-    @Environment(\.presentationMode) var presentationMode
     
     @State var titleBorder: Color = .white
     @State var bikeNameBorder: Color = .white
@@ -54,7 +54,7 @@ struct AddRideView: View {
             Spacer()
             
         }
-        .onAppear(perform: fetchBikeNames)
+        .onAppear(perform: getBikeNames)
         .padding(.horizontal, 10)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("appMirage"))
@@ -82,16 +82,10 @@ struct AddRideView: View {
         .toolbarBackground(Color("appMirage"), for: .navigationBar)
     }
     
-    private func fetchBikeNames() {
-        let fetchRequest = NSFetchRequest<Bike>(entityName: "Bike")
-        
-        do {
-            let results = try context.fetch(fetchRequest)
-            bikesName = results.compactMap { Pair(id: $0.id,
-                                                  name: $0.name) }
-        } catch {
-            print("Error fetching Bike names: \(error.localizedDescription)")
-        }
+    private func getBikeNames() {
+        let bikes = PersistenceController.shared.fetchBikes()
+        bikesName = bikes.compactMap { Pair(id: $0.id,
+                                            name: $0.name) }
     }
     
     private func saveRide() {
@@ -117,7 +111,8 @@ struct AddRideView: View {
                 shouldNotSave = true
             }
         }
-        if selectedBike.name == nil {
+        if selectedBike.name == nil,
+           selectedBike.id == nil {
             showAlert = true
             shouldNotSave = true
         }
@@ -135,12 +130,10 @@ struct AddRideView: View {
         newRide.duration = textFieldDuration
         newRide.date = textFieldDate
         if let id = selectedBike.id {
-            let bike = Transformer.shared.fetchBike(from: id)
-            bike?.ridesRelationship?.adding(newRide)
-            newRide.bikeRelationship = Transformer.shared.fetchBike(from: id)
+            newRide.bikeRelationship = Helper.shared.getBike(from: id)
+        }
         PersistenceController.shared.saveContext()
         presentationMode.wrappedValue.dismiss()
-        }
     }
     
     private func checkDate(_ date: String) -> Bool {
@@ -155,11 +148,11 @@ struct AddRideView: View {
     }
 }
 
-    struct AddRideView_Previews: PreviewProvider {
-        static var previews: some View {
-            AddRideView()
-        }
+struct AddRideView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddRideView()
     }
+}
 
 
 

@@ -134,9 +134,9 @@ struct EditRideView: View {
         newRide.duration = textFieldDuration
         newRide.date = textFieldDate
         if let id = selectedBike.id {
-            let bike = Transformer.shared.fetchBike(from: id)
+            let bike = Helper.shared.getBike(from: id)
             bike?.ridesRelationship?.adding(newRide)
-            newRide.bikeRelationship = Transformer.shared.fetchBike(from: id)
+            newRide.bikeRelationship = Helper.shared.getBike(from: id)
         PersistenceController.shared.saveContext()
         presentationMode.wrappedValue.dismiss()
         }

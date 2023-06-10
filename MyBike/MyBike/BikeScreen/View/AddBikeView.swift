@@ -42,7 +42,6 @@ struct AddBikeView: View {
                         .tint(Color("appBlueRibbon"))
                     Button(action: {
                         saveBike()
-                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Add Bike")
                             .foregroundColor(.white)
@@ -105,7 +104,7 @@ struct AddBikeView: View {
             return
         }
         if defaultBike {
-            PersistenceController.shared.defaultBikeIsChanged()
+            PersistenceController.shared.setDefaultBikeToFalse()
         }
         
         let newBike = Bike(context: context)

@@ -46,10 +46,10 @@ struct RideCell: View {
                     Image("icon_overflow")
                 }
             }
-            .alert("\(Transformer.shared.fetchRideName(rideID)) will be deleted", isPresented: $showingAlert) {
+            .alert("\(Helper.shared.getRide(from: rideID)?.title ?? "") will be deleted", isPresented: $showingAlert) {
                 Button("Cancel", role: .cancel) { }
                 Button("Delete", role: .destructive) {
-                    guard let ride = Transformer.shared.fetchRide(from: rideID) else { return}
+                    guard let ride = Helper.shared.getRide(from: rideID) else { return }
                     PersistenceController.shared.deleteRide(ride)
                 }
         }

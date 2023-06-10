@@ -6,10 +6,4 @@
 //
 
 import Foundation
-import SwiftUI
 
-extension BikeView {
-    @MainActor class BikeViewModel: ObservableObject {
-        @Published var allBikes = [BikeModel]()
-    }
-}

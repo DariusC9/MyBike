@@ -6,9 +6,3 @@
 //
 
 import Foundation
-
-class RideContentViewModel {
-    var shouldShowEmptyScreen: Bool {
-        return true
-    }
-}

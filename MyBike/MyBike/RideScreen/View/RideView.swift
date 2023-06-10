@@ -8,15 +8,20 @@
 import SwiftUI
 
 struct RideView: View {
-    @State var allRides: [RideModel]
-    @State var allStatistics: [StatisticsData]
     @State private var goToAddRideView = false
+    
+    private var rides: [Ride] {
+        return PersistenceController.shared.fetchRides()
+    }
+    private var allStatistics: [StatisticsData] {
+        return Helper.shared.transformDataIntoStatistics(PersistenceController.shared.fetchBikes())
+    }
     
     var body: some View {
         VStack(spacing: 0) {
             StatisticsView(allStatistics: allStatistics)
             VStack(alignment: .leading) {
-                List(allRides, id: \.self) { item in
+                List(Helper.shared.convertToRideModel(rides), id: \.self) { item in
                     RideCell(model: item)
                         .listRowBackground(Color.black)
                         .listRowInsets(.init(top: 5,
@@ -67,10 +72,6 @@ struct RideView: View {
 
 struct RideView_Previews: PreviewProvider {
     static var previews: some View {
-        RideView(allRides: [.testRide()], allStatistics: [
-            StatisticsData(color: ".green", value: 1300, bikeName: "Road", bikeID: UUID()),
-            StatisticsData(color: ".yellow", value: 500, bikeName: "E-bike", bikeID: UUID()),
-            StatisticsData(color: ".red", value: 1300, bikeName: "Distrugatorul", bikeID: UUID()),
-            StatisticsData(color: ".pink", value: 100, bikeName: "MTB", bikeID: UUID())])
+        RideView()
     }
 }

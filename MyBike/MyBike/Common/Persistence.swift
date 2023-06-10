@@ -84,7 +84,7 @@ struct PersistenceController {
         let viewContext = container.viewContext
         var rides: [Ride] = []
         let fetchRequest: NSFetchRequest<Ride> = Ride.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "bike.ID == %@", bikeID as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "bikeId == %@", bikeID as CVarArg)
         do {
             rides = try viewContext.fetch(fetchRequest)
         } catch {
@@ -115,12 +115,11 @@ struct PersistenceController {
         saveContext()
     }
     
-    func defaultBikeIsChanged() {
+    func setDefaultBikeToFalse() {
         let bikes = fetchBikes()
         for bike in bikes {
             bike.defaultBike = false
         }
         saveContext()
-        
     }
 }

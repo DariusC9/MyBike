@@ -1,5 +1,5 @@
 //
-//  BikeView.swift
+//  BikesView.swift
 //  MyBike
 //
 //  Created by Darius Couti on 01.06.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BikeView: View {
+struct BikesView: View {
     
     @State private var goToAddBikeView = false
     @State private var goToEditBikeView = false
@@ -15,18 +15,19 @@ struct BikeView: View {
     @State private var selectedBike: BikeModel? = nil
     @State private var bikeID: UUID = UUID()
     
-    @State var rides = PersistenceController.shared.fetchRides()
-    @State var bikes = PersistenceController.shared.fetchBikes()
-    
-    @State var bikeList: [BikeModel]
+    private var rides: [Ride] {
+        return PersistenceController.shared.fetchRides()
+    }
+    private var bikes: [Bike] {
+        return PersistenceController.shared.fetchBikes()
+    }
     
     var body: some View {
-        
         VStack {
-            List(bikeList, id: \.self) { item in
+            List(Helper.shared.convertToBikeModel(bikes), id: \.self) { item in
                 ZStack {
                     BikeCell(model: item)
-                    NavigationLink(destination: BikeDetailsView(model: item, allRides: Transformer.shared.convertToBikesRideModel(from: rides, using: item.ID))) {
+                    NavigationLink(destination: BikeDetailsView(model: item, allRides: Helper.shared.convertToRideModel(from: rides, using: item.ID))) {
                         EmptyView()
                     }
                     .buttonStyle(PlainButtonStyle())
@@ -54,17 +55,17 @@ struct BikeView: View {
                                 Image("icon_overflow")
                             }
                             .padding()
-                            .alert("\(Transformer.shared.fetchBikeName(bikeID)) will be deleted", isPresented: $showingAlert) {
+                            .alert("\(Helper.shared.getBike(from: bikeID)?.name ?? "") will be deleted", isPresented: $showingAlert) {
                                 Button("Cancel", role: .cancel) { }
                                 Button("Delete", role: .destructive) {
-                                    guard let bike = Transformer.shared.fetchBike(from: bikeID) else { return}
+                                    guard let bike = Helper.shared.getBike(from: bikeID) else { return }
                                     PersistenceController.shared.deleteBike(bike)
                                 }
                             }
                         }
                         Spacer()
                     }
-                    NavigationLink(destination: EditBikeView(defaultBike: Transformer.shared.defaultBikeBool(from: selectedBike ?? item, bikes), selectedBike: selectedBike ?? item), isActive: $goToEditBikeView) {
+                    NavigationLink(destination: EditBikeView(defaultBike: Helper.shared.isDefaultBike(selectedBike ?? item), selectedBike: selectedBike ?? item), isActive: $goToEditBikeView) {
                         EmptyView()
                     }
                     .hidden()
@@ -74,10 +75,6 @@ struct BikeView: View {
                 .background(.black)
             }
         }
-//        .onAppear(perform: {
-//            rides = PersistenceController.shared.fetchRides()
-//            bikes = PersistenceController.shared.fetchBikes()
-//        })
         .scrollContentBackground(.hidden)
         .listStyle(.plain)
         .navigationBarBackButtonHidden(true)
@@ -112,9 +109,9 @@ struct BikeView: View {
         .background(.black)
     }
 }
-    struct BikeView_Previews: PreviewProvider {
+    struct BikesView_Previews: PreviewProvider {
         static var previews: some View {
-            BikeView(bikeList: [BikeModel.testBike()])
+            BikesView()
         }
     }
 
