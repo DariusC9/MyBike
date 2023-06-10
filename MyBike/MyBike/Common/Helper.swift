@@ -28,23 +28,30 @@ struct Helper {
         return nil
     }
     
-    func convertToBikeModel(_ bikes: [Bike]) -> [BikeModel] {
+    func convertToBikeModels(_ bikes: [Bike]) -> [BikeModel] {
         var allBikes = [BikeModel]()
         for bike in bikes {
-            if let name = bike.name,
-               let id = bike.id {
-                let colorName = bike.color ?? "bikeCornFlowerBlue"
-                allBikes.append(BikeModel(ID: id,
-                                          color: colorName,
-                                          name: name,
-                                          distance: Double(bike.distance),
-                                          wheelSize: Double(bike.wheelSize),
-                                          bikeImages: BikeModel.BikeImages(topImageName: "bike_\(bike.type ?? "electric")_over",
-                                                                 middleImageName: "bike_\(bike.type ?? "electric")_middle",
-                                                                 wheelImageName: "bike_\(bike.type ?? "electric")_small_wheels")))
+            if let bikeModel = convertToBikeModel(bike) {
+                allBikes.append(bikeModel)
             }
         }
         return allBikes
+    }
+    
+    func convertToBikeModel(_ bike: Bike) -> BikeModel? {
+        if let name = bike.name,
+           let id = bike.id {
+            let colorName = bike.color ?? "bikeCornFlowerBlue"
+            return BikeModel(ID: id,
+                                      color: colorName,
+                                      name: name,
+                                      distance: Double(bike.distance),
+                                      wheelSize: Double(bike.wheelSize),
+                                      bikeImages: BikeModel.BikeImages(topImageName: "bike_\(bike.type ?? "electric")_over",
+                                                             middleImageName: "bike_\(bike.type ?? "electric")_middle",
+                                                             wheelImageName: "bike_\(bike.type ?? "electric")_small_wheels"))
+        }
+        return nil
     }
     
     func getPercentUntilService(for bikeID: UUID) -> Double {

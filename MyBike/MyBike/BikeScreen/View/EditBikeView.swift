@@ -24,6 +24,8 @@ struct EditBikeView: View {
     @State var bikeType: BikeType = .roadBike
     @State var selectedBike: BikeModel
     
+    var closure: ((Bool) -> Void)?
+    
     var body: some View {
         
         ZStack{
@@ -100,6 +102,7 @@ struct EditBikeView: View {
             shouldNotSave = true
         }
         if shouldNotSave {
+            closure?(false)
             return
         }
         if defaultBike {
@@ -115,6 +118,7 @@ struct EditBikeView: View {
         bike.color = selectedBike.color
 
         PersistenceController.shared.saveContext()
+        closure?(true)
         presentationMode.wrappedValue.dismiss()
     }
     private func deleteBike() {

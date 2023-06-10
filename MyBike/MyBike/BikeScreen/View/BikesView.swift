@@ -19,16 +19,14 @@ struct BikesView: View {
     @State private var selectedBike: BikeModel? = nil
     @State private var bikeID: UUID = UUID()
     
-    private var rides: [Ride] {
-        return PersistenceController.shared.fetchRides()
-    }
+    @ObservedObject var bikeViewModel = BikeViewModel()
     
     var body: some View {
         VStack {
-            List(Helper.shared.convertToBikeModel(bikes.reversed()), id: \.self) { item in
+            List(bikeViewModel.bikeModels, id: \.self) { item in
                 ZStack {
                     BikeCell(model: item)
-                    NavigationLink(destination: BikeDetailsView(model: item, allRides: Helper.shared.convertToRideModel(from: rides, using: item.ID))) {
+                    NavigationLink(destination: BikeDetailsView(model: item, allRides: Helper.shared.convertToRideModel(from: bikeViewModel.rides, using: item.ID))) {
                         EmptyView()
                     }
                     .buttonStyle(PlainButtonStyle())
@@ -66,7 +64,13 @@ struct BikesView: View {
                         }
                         Spacer()
                     }
-                    NavigationLink(destination: EditBikeView(defaultBike: Helper.shared.isDefaultBike(selectedBike ?? item), selectedBike: selectedBike ?? item), isActive: $goToEditBikeView) {
+                    NavigationLink(destination: EditBikeView(defaultBike: Helper.shared.isDefaultBike(selectedBike ?? item),
+                                                             selectedBike: selectedBike ?? item,
+                                                             closure: { wasSaved in
+                        if wasSaved {
+                            bikeViewModel.updateItems()
+                        }
+                    }), isActive: $goToEditBikeView) {
                         EmptyView()
                     }
                     .hidden()
@@ -110,10 +114,5 @@ struct BikesView: View {
         .background(.black)
     }
 }
-    struct BikesView_Previews: PreviewProvider {
-        static var previews: some View {
-            BikesView()
-        }
-    }
 
 
