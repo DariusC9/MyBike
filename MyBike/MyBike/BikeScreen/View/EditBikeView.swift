@@ -106,17 +106,13 @@ struct EditBikeView: View {
             PersistenceController.shared.setDefaultBikeToFalse()
         }
         let savedId = selectedBike.ID
-        let oldBike = Helper.shared.getBike(from: savedId)
-        deleteBike()
-        let newBike = Bike(context: context)
-        newBike.id = savedId
-        newBike.ridesRelationship = oldBike?.ridesRelationship
-        newBike.name = bikeNameText
-        newBike.defaultBike = defaultBike
-        newBike.distance = service ?? 0
-        newBike.wheelSize = wheelSize ?? 0
-        newBike.type = bikeType.rawValue
-        newBike.color = selectedBike.color
+        guard let bike = Helper.shared.getBike(from: savedId) else { return }
+        bike.name = bikeNameText
+        bike.defaultBike = defaultBike
+        bike.distance = service ?? 0
+        bike.wheelSize = wheelSize ?? 0
+        bike.type = bikeType.rawValue
+        bike.color = selectedBike.color
 
         PersistenceController.shared.saveContext()
         presentationMode.wrappedValue.dismiss()
