@@ -18,74 +18,13 @@ struct BikeDetailsView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                 VStack {
-                    ZStack {
-                        Image(model.bikeImages.wheelImageName)
-                            .scaleEffect(1.75)
-                        Image(model.bikeImages.middleImageName)
-                            .scaleEffect(1.75)
-                            .colorMultiply(Color(model.color))
-                        Image(model.bikeImages.topImageName)
-                            .scaleEffect(1.75)
-                        
-                    }
-                    .padding(.top, 70)
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Wheels: \(model.wheelSize)\"")
-                                .font(Fonts.labelTextRide)
-                            Text("Service in: \(model.distance)km")
-                                .font(Fonts.labelTextRide)
-                        }
-                        .foregroundColor(.white)
-                        .padding(.top, 20)
-                        Spacer()
-                    }
-                    .padding(.leading, 20)
-                    ZStack(alignment: .leading) {
-                        Image("loading_bar")
-                            .resizable()
-                            .frame(width: 300, height: 4)
-                        Image("loading_over")
-                            .resizable()
-                            .frame(width: 230, height: 4)
-                        Image("loading_circle")
-                        
-                        Image("loading_bolt")
-                            .offset(x: 300)
-                        Image("loading_wrench")
-                            .offset(x: 230)
-                    }
-                    .padding(.top, 20)
+                    createBikeImage()
+                    createDetails().padding(.top, 10)
+                    createWrenchView()
                 }
             }
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("Rides: \(allRides.count)")
-                        .font(Fonts.labelTextRide)
-                    Text("Total Rides Distance: \(Helper.shared.getTotalDistance(for: model.ID))km")
-                        .font(Fonts.labelTextRide)
-                }
-                .foregroundColor(.white)
-                Spacer()
-            }
-            .padding(.leading, 20)
-            .padding(.bottom, 20)
-            .background(Color("appMirage"))
-            VStack(alignment: .leading) {
-                List(allRides, id: \.self) { item in
-                    RideCell(model: item)
-                        .listRowBackground(Color("appMirage"))
-                        .listRowInsets(.init(top: 5,
-                                             leading: 0,
-                                             bottom: 5,
-                                            trailing: 0))
-                        
-                }
-                .scrollContentBackground(.hidden)
-                .padding(.horizontal, -20)
-                
-            }
-            .background(Color("appMirage"))
+            createRidesStatistics()
+            createRidesList()
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -100,6 +39,91 @@ struct BikeDetailsView: View {
         }
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbarBackground(Color(.black), for: .navigationBar)
+    }
+    
+    @ViewBuilder
+    private func createBikeImage() -> some View {
+        ZStack {
+            Image(model.bikeImages.wheelImageName)
+                .scaleEffect(1.75)
+            Image(model.bikeImages.middleImageName)
+                .scaleEffect(1.75)
+                .colorMultiply(Color(model.color))
+            Image(model.bikeImages.topImageName)
+                .scaleEffect(1.75)
+        }
+        .padding(.top, 70)
+    }
+    
+    @ViewBuilder
+    private func createDetails() -> some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Wheels: \(model.wheelSize)\"")
+                    .font(Fonts.labelTextRide)
+                Text("Service in: \(model.distance)km")
+                    .font(Fonts.labelTextRide)
+            }
+            .foregroundColor(.white)
+            .padding(.top, 20)
+            Spacer()
+        }
+        .padding(.leading, 20)
+    }
+    
+    @ViewBuilder
+    private func createWrenchView() -> some View {
+        ZStack(alignment: .leading) {
+            Image("loading_bar")
+                .resizable()
+                .frame(width: 320, height: 4)
+            Image("loading_over")
+                .resizable()
+                .frame(width: 320 * Helper.shared.getPercentUntilService(for: model.ID), height: 4)
+            Image("loading_circle")
+            
+            Image("loading_bolt")
+                .offset(x: 320)
+            Image("loading_wrench")
+                .offset(x: 320 * Helper.shared.getPercentUntilService(for: model.ID))
+        }
+        .padding(.top, 20)
+    }
+    
+    @ViewBuilder
+    private func createRidesStatistics() -> some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Rides: \(allRides.count)")
+                    .font(Fonts.labelTextRide)
+                Text("Total Rides Distance: \(Helper.shared.getTotalDistance(for: model.ID))km")
+                    .font(Fonts.labelTextRide)
+            }
+            .foregroundColor(.white)
+            Spacer()
+        }
+        .padding(.leading, 20)
+        .padding(.bottom, 20)
+        .background(Color("appMirage"))
+    }
+    
+    @ViewBuilder
+    private func createRidesList() -> some View {
+        VStack(alignment: .leading) {
+            List(allRides, id: \.self) { item in
+                RideCell(model: item)
+                    .listRowBackground(Color("appMirage"))
+                    .listRowInsets(.init(top: 5,
+                                         leading: 0,
+                                         bottom: 5,
+                                        trailing: 0))
+                    
+            }
+            .scrollContentBackground(.hidden)
+            .padding(.horizontal, -20)
+            
+        }
+        .background(Color("appMirage"))
     }
 }
 
