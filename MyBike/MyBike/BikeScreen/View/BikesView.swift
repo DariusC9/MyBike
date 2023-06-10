@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct BikesView: View {
+    
+    @Environment(\.managedObjectContext) private var context: NSManagedObjectContext
+    @FetchRequest(entity: Bike.entity(), sortDescriptors: []) private var bikes: FetchedResults<Bike>
     
     @State private var goToAddBikeView = false
     @State private var goToEditBikeView = false
@@ -18,13 +22,10 @@ struct BikesView: View {
     private var rides: [Ride] {
         return PersistenceController.shared.fetchRides()
     }
-    private var bikes: [Bike] {
-        return PersistenceController.shared.fetchBikes()
-    }
     
     var body: some View {
         VStack {
-            List(Helper.shared.convertToBikeModel(bikes), id: \.self) { item in
+            List(Helper.shared.convertToBikeModel(bikes.reversed()), id: \.self) { item in
                 ZStack {
                     BikeCell(model: item)
                     NavigationLink(destination: BikeDetailsView(model: item, allRides: Helper.shared.convertToRideModel(from: rides, using: item.ID))) {

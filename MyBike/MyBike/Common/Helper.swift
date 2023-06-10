@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Helper {
+struct Helper {
     
     static let shared = Helper()
     
@@ -88,7 +88,7 @@ class Helper {
         let bikes = PersistenceController.shared.fetchBikes()
         let id = item.ID
         for bike in bikes {
-            if bike.id == id {
+            if bike.id == id, bike.defaultBike {
                 return true
             }
         }

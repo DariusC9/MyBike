@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct RideView: View {
+    @Environment(\.managedObjectContext) private var context: NSManagedObjectContext
+    @FetchRequest(entity: Ride.entity(), sortDescriptors: []) private var rides: FetchedResults<Ride>
+
     @State private var goToAddRideView = false
-    
-    private var rides: [Ride] {
-        return PersistenceController.shared.fetchRides()
-    }
     private var allStatistics: [StatisticsData] {
         return Helper.shared.transformDataIntoStatistics(PersistenceController.shared.fetchBikes())
     }
@@ -21,7 +21,7 @@ struct RideView: View {
         VStack(spacing: 0) {
             StatisticsView(allStatistics: allStatistics)
             VStack(alignment: .leading) {
-                List(Helper.shared.convertToRideModel(rides), id: \.self) { item in
+                List(Helper.shared.convertToRideModel(rides.reversed()), id: \.self) { item in
                     RideCell(model: item)
                         .listRowBackground(Color.black)
                         .listRowInsets(.init(top: 5,
