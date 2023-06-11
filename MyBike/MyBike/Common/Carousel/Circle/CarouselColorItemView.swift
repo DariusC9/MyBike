@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// In order to iterate it in a list, we need the item to be hashable
 struct CarouselColorItem: Hashable {
     
     let ID = UUID()

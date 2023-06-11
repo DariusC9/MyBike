@@ -72,10 +72,10 @@ struct BikeCell: View {
         .padding(.top, 10)
     }
 }
-    struct BikeCell_Previews: PreviewProvider {
-        static var previews: some View {
-            BikeCell(model: .testBike())
-        }
+struct BikeCell_Previews: PreviewProvider {
+    static var previews: some View {
+        BikeCell(model: .testBike())
     }
-    
+}
+
 

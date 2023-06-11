@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Singleton used for converting data
 struct Helper {
     
     static let shared = Helper()

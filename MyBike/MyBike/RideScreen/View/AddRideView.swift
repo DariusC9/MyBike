@@ -31,12 +31,12 @@ struct AddRideView: View {
     var body: some View {
 
         VStack(spacing: 20) {
-            AddBikeCell(subTitle: "Ride Title", textFieldBind: $textFieldTitle, borderColor: $titleBorder, placeholder: "Add Ride Title")
+            AddCell(subTitle: "Ride Title", textFieldBind: $textFieldTitle, borderColor: $titleBorder, placeholder: "Add Ride Title")
             DropdownView(selectedOption: $selectedBike, subTitle: "Bike", borderColor: $bikeNameBorder, options: bikesName)
                 .padding(.horizontal, -10)
-            AddBikeCell(subTitle: "Distance", textFieldBind: $textFieldDistance, borderColor: $distanceBorder, placeholder: "Add Ride Distance")
-            AddBikeCell(subTitle: "Duration", textFieldBind: $textFieldDuration, borderColor: $durationBorder, placeholder: "Add Ride Duration")
-            AddBikeCell(subTitle: "Date", textFieldBind: $textFieldDate, borderColor: $dateBorder, placeholder: "Add Ride Date")
+            AddCell(subTitle: "Distance", textFieldBind: $textFieldDistance, borderColor: $distanceBorder, placeholder: "Add Ride Distance")
+            AddCell(subTitle: "Duration", textFieldBind: $textFieldDuration, borderColor: $durationBorder, placeholder: "Add Ride Duration")
+            AddCell(subTitle: "Date", textFieldBind: $textFieldDate, borderColor: $dateBorder, placeholder: "Add Ride Date")
             Button(action: {
                 saveRide()
             }) {
@@ -151,46 +151,5 @@ struct AddRideView: View {
 struct AddRideView_Previews: PreviewProvider {
     static var previews: some View {
         AddRideView()
-    }
-}
-
-
-
-struct AddBikeCell: View {
-    
-    var subTitle: String
-    @Binding var textFieldBind: String
-    @Binding var borderColor: Color
-    var placeholder: String
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text("\(subTitle)*")
-                .foregroundColor(.white)
-                .font(Fonts.labelText)
-            ZStack(alignment: .leading) {
-                    if textFieldBind.isEmpty {
-                        Text(placeholder)
-                            .foregroundColor(.white)
-                            .font(Fonts.textField)
-                            .opacity(0.7)
-                            .padding(.leading, 10)
-                    }
-                    TextField("", text: $textFieldBind, onEditingChanged: { isEditing in
-                        if isEditing {
-                            borderColor = .white
-                        }
-                    })
-                    .foregroundColor(.white)
-                    .font(Fonts.textField)
-                    .frame(maxWidth: .infinity)
-                    .padding(10)
-                }
-                .background(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(borderColor, lineWidth: 1)
-                        .background(Color("appCloudBurst"))
-                )
-        }
     }
 }

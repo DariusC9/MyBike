@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CarouselView: View {
+    // Colors defined in the design
     var carouselColorItems: [CarouselColorItem] = [
         CarouselConstants.white,
         CarouselConstants.gray,
@@ -23,6 +24,7 @@ struct CarouselView: View {
         CarouselConstants.brown,
     ]
     
+    // The 4 types of bikes available
     var carouselBikeItems: [CarouselBikeItem] = [
         CarouselBikeItem(bikeType: .roadBike),
         CarouselBikeItem(bikeType: .hybrid),
@@ -141,6 +143,7 @@ struct CarouselView: View {
         guard let selectedColor = selectedColor?.color else {
             return .blue
         }
+        // The default color for bikes is blue
         return isSelectedBike(item) ? selectedColor : .blue
     }
     
@@ -148,9 +151,3 @@ struct CarouselView: View {
         return item.bikeType.getTag() == selectedImageIndex
     }
 }
-
-//struct CarouselView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CarouselView(color: <#Binding<String>#>, bikeType: <#Binding<BikeType>#>)
-//    }
-//}

@@ -68,7 +68,6 @@ struct DropDownMenuDefaultBike: View {
     }
     
     private func showBikeName() -> String {
-    
         if defaultBike == nil {
             return "Select a default bike"
         } else {
@@ -77,9 +76,3 @@ struct DropDownMenuDefaultBike: View {
     }
     
 }
-
-//struct DropDownMenuDefaultBike_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DropDownMenuDefaultBike(options: PersistenceController.shared.fetchBikes())
-//    }
-//}

@@ -58,9 +58,7 @@ struct DropDownMenuDistanceUnits: View {
                     .background(Color("appCloudBurst"))
             )
             .padding(.horizontal, 10)
-            
         }
-        
     }
 }
 

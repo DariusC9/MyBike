@@ -13,19 +13,15 @@ struct SettingsView: View {
     @State private var isToggleOn = false
     @State var borderColor = Color.white
     @State var selectedOption: Pair = .empty()
-
     
     var body: some View {
         VStack(spacing: 20) {
             DropDownMenuDistanceUnits()
             VStack (alignment: .leading, spacing: 5){
-                
                 Text("Service Reminder")
                     .foregroundColor(.white)
                     .font(Fonts.labelText)
-
                 HStack {
-
                     TextField(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/, text: $textFieldService)
                         .textFieldStyle(.plain)
                         .padding(10)
@@ -37,9 +33,7 @@ struct SettingsView: View {
                                 .stroke(Color.white, lineWidth: 1)
                                 .background(Color("appCloudBurst"))
                         )
-                    
 
-                    
                     Toggle("", isOn: $isToggleOn)
                         .labelsHidden()
                         .tint(Color("appBlueRibbon"))

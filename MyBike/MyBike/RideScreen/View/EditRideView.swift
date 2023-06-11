@@ -32,12 +32,12 @@ struct EditRideView: View {
     var body: some View {
 
         VStack(spacing: 20) {
-            AddBikeCell(subTitle: "Ride Title", textFieldBind: $textFieldTitle, borderColor: $titleBorder, placeholder: selectedRide.title)
+            AddCell(subTitle: "Ride Title", textFieldBind: $textFieldTitle, borderColor: $titleBorder, placeholder: selectedRide.title)
             DropdownView(selectedOption: $selectedBike, subTitle: "Bike", borderColor: $bikeNameBorder, options: bikesName)
                 .padding(.horizontal, -10)
-            AddBikeCell(subTitle: "Distance", textFieldBind: $textFieldDistance, borderColor: $distanceBorder, placeholder: selectedRide.distance)
-            AddBikeCell(subTitle: "Duration", textFieldBind: $textFieldDuration, borderColor: $durationBorder, placeholder: selectedRide.duration)
-            AddBikeCell(subTitle: "Date", textFieldBind: $textFieldDate, borderColor: $dateBorder, placeholder: selectedRide.Date)
+            AddCell(subTitle: "Distance", textFieldBind: $textFieldDistance, borderColor: $distanceBorder, placeholder: selectedRide.distance)
+            AddCell(subTitle: "Duration", textFieldBind: $textFieldDuration, borderColor: $durationBorder, placeholder: selectedRide.duration)
+            AddCell(subTitle: "Date", textFieldBind: $textFieldDate, borderColor: $dateBorder, placeholder: selectedRide.Date)
             Button(action: {
                 editRide()
             }) {
@@ -50,7 +50,6 @@ struct EditRideView: View {
             }
             .padding(.top, 20)
             Spacer()
-            
         }
         .onAppear(perform: fetchBikeNames)
         .padding(.horizontal, 10)
@@ -137,8 +136,8 @@ struct EditRideView: View {
             let bike = Helper.shared.getBike(from: id)
             bike?.ridesRelationship?.adding(newRide)
             newRide.bikeRelationship = Helper.shared.getBike(from: id)
-        PersistenceController.shared.saveContext()
-        presentationMode.wrappedValue.dismiss()
+            PersistenceController.shared.saveContext()
+            presentationMode.wrappedValue.dismiss()
         }
     }
     

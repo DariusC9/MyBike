@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+// 4 bike types available:
+// - roadBike
+// - hybrid
+// - electric
+// - mtb
 enum BikeType: String {
     case roadBike = "roadbike"
     case hybrid = "hybrid"
@@ -26,6 +31,7 @@ enum BikeType: String {
         }
     }
     
+    // Used to update the segmented controller
     func getTag() -> Int {
         switch self {
         case .roadBike:
@@ -39,6 +45,7 @@ enum BikeType: String {
         }
     }
     
+    // Bike Image is created from 3 separate images
     func getTopImageName() -> String {
         return "bike_\(self.rawValue)_big_wheels"
     }
@@ -52,6 +59,8 @@ enum BikeType: String {
     }
 }
 
+
+// In order to iterate it in a list, we need the item to be hashable
 struct CarouselBikeItem: Hashable {
     let ID = UUID()
     let bikeType: BikeType
@@ -64,10 +73,7 @@ struct CarouselBikeItem: Hashable {
                                 actionWhenSelected: { item in
             print("Pushed \(item)")
         })
-        
-        
-        }
-    
+    }
     
     // MARK: - Protocol Methods
     

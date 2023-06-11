@@ -32,7 +32,6 @@ struct RideView: View {
                 }
                 .scrollContentBackground(.hidden)
                 .padding(.horizontal, -20)
-                
             }
             .background(.black)
         }

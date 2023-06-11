@@ -66,7 +66,6 @@ struct EmptyBikeView: View {
             .background(.black)
             .frame(maxWidth: .infinity, alignment: .leading)
         }
-        
     }
 }
 

@@ -10,7 +10,6 @@
 		80232F432A310D1500DCB7FA /* EditBikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232F422A310D1500DCB7FA /* EditBikeView.swift */; };
 		807878EC2A29CC51006302B9 /* CarouselConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878EB2A29CC51006302B9 /* CarouselConstants.swift */; };
 		807878F32A29DDCE006302B9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878F22A29DDCE006302B9 /* SettingsView.swift */; };
-		807878F82A2A2CE7006302B9 /* RideContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878F72A2A2CE7006302B9 /* RideContentViewModel.swift */; };
 		807878FA2A2A2D33006302B9 /* RideContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878F92A2A2D33006302B9 /* RideContentView.swift */; };
 		807878FC2A2A309C006302B9 /* RideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878FB2A2A309B006302B9 /* RideView.swift */; };
 		807878FE2A2A3156006302B9 /* RideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807878FD2A2A3156006302B9 /* RideCell.swift */; };
@@ -39,12 +38,12 @@
 		80A894CF2A28ACAC00C2EB84 /* CarouselColorItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A894CE2A28ACAC00C2EB84 /* CarouselColorItemView.swift */; };
 		80A894D12A28B1E700C2EB84 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A894D02A28B1E700C2EB84 /* CarouselView.swift */; };
 		80A894D42A28BB6200C2EB84 /* CarouselBikeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A894D32A28BB6200C2EB84 /* CarouselBikeItem.swift */; };
-		80A894D62A28C36500C2EB84 /* CarouselBiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A894D52A28C36500C2EB84 /* CarouselBiveView.swift */; };
 		80A8CEBB2A25D6C2004A1DF3 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A8CEBA2A25D6C2004A1DF3 /* CustomTabBar.swift */; };
 		80AB41C32A34EAE6002201EC /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AB41C22A34EAE6002201EC /* DropdownView.swift */; };
 		80AF07862A331B7A00DF5F62 /* DropDownMenuDefaultBike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF07852A331B7A00DF5F62 /* DropDownMenuDefaultBike.swift */; };
 		80B0D31E2A30565000BC9379 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B0D31D2A30565000BC9379 /* StatisticsView.swift */; };
 		80B0D3202A30BD5700BC9379 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B0D31F2A30BD5700BC9379 /* Helper.swift */; };
+		80B9A1D42A35B3D60075B0C9 /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B9A1D32A35B3D60075B0C9 /* AddCell.swift */; };
 		80BDF71D2A2F3B8600511E50 /* Pair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDF71C2A2F3B8600511E50 /* Pair.swift */; };
 		80BDF71F2A2F6E6000511E50 /* BikeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDF71E2A2F6E6000511E50 /* BikeDetailsView.swift */; };
 /* End PBXBuildFile section */
@@ -70,7 +69,6 @@
 		80232F422A310D1500DCB7FA /* EditBikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBikeView.swift; sourceTree = "<group>"; };
 		807878EB2A29CC51006302B9 /* CarouselConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselConstants.swift; sourceTree = "<group>"; };
 		807878F22A29DDCE006302B9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		807878F72A2A2CE7006302B9 /* RideContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideContentViewModel.swift; sourceTree = "<group>"; };
 		807878F92A2A2D33006302B9 /* RideContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideContentView.swift; sourceTree = "<group>"; };
 		807878FB2A2A309B006302B9 /* RideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideView.swift; sourceTree = "<group>"; };
 		807878FD2A2A3156006302B9 /* RideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideCell.swift; sourceTree = "<group>"; };
@@ -102,12 +100,12 @@
 		80A894CE2A28ACAC00C2EB84 /* CarouselColorItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselColorItemView.swift; sourceTree = "<group>"; };
 		80A894D02A28B1E700C2EB84 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		80A894D32A28BB6200C2EB84 /* CarouselBikeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselBikeItem.swift; sourceTree = "<group>"; };
-		80A894D52A28C36500C2EB84 /* CarouselBiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselBiveView.swift; sourceTree = "<group>"; };
 		80A8CEBA2A25D6C2004A1DF3 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		80AB41C22A34EAE6002201EC /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
 		80AF07852A331B7A00DF5F62 /* DropDownMenuDefaultBike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuDefaultBike.swift; sourceTree = "<group>"; };
 		80B0D31D2A30565000BC9379 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		80B0D31F2A30BD5700BC9379 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		80B9A1D32A35B3D60075B0C9 /* AddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCell.swift; sourceTree = "<group>"; };
 		80BDF71C2A2F3B8600511E50 /* Pair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pair.swift; sourceTree = "<group>"; };
 		80BDF71E2A2F6E6000511E50 /* BikeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,14 +141,6 @@
 				807878FF2A2A4AB8006302B9 /* RideModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		807878F62A2A2B56006302B9 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				807878F72A2A2CE7006302B9 /* RideContentViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		809A16982A2525F3006BFE2E = {
@@ -236,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				80B0D31C2A30563500BC9379 /* Statistics */,
-				807878F62A2A2B56006302B9 /* ViewModel */,
 				807878F52A2A2B46006302B9 /* Model */,
 				80A894BD2A286D5100C2EB84 /* View */,
 			);
@@ -260,7 +249,6 @@
 				80A894C52A2874EF00C2EB84 /* BikesView.swift */,
 				80A894C72A287FF900C2EB84 /* BikeContentView.swift */,
 				80A894CB2A28A46900C2EB84 /* AddBikeView.swift */,
-				80BDF71E2A2F6E6000511E50 /* BikeDetailsView.swift */,
 				80232F422A310D1500DCB7FA /* EditBikeView.swift */,
 			);
 			path = View;
@@ -298,6 +286,7 @@
 				80B0D31F2A30BD5700BC9379 /* Helper.swift */,
 				809A16AD2A2525F4006BFE2E /* Persistence.swift */,
 				80AB41C22A34EAE6002201EC /* DropdownView.swift */,
+				80B9A1D32A35B3D60075B0C9 /* AddCell.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -350,7 +339,6 @@
 			isa = PBXGroup;
 			children = (
 				80A894D32A28BB6200C2EB84 /* CarouselBikeItem.swift */,
-				80A894D52A28C36500C2EB84 /* CarouselBiveView.swift */,
 			);
 			path = Bike;
 			sourceTree = "<group>";
@@ -358,6 +346,7 @@
 		80B0D31B2A3055E100BC9379 /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
+				80BDF71E2A2F6E6000511E50 /* BikeDetailsView.swift */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
@@ -500,10 +489,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				807878F82A2A2CE7006302B9 /* RideContentViewModel.swift in Sources */,
 				809A16B12A2525F4006BFE2E /* MyBike.xcdatamodeld in Sources */,
 				807878F32A29DDCE006302B9 /* SettingsView.swift in Sources */,
 				80A894C42A28726800C2EB84 /* BikeViewModel.swift in Sources */,
+				80B9A1D42A35B3D60075B0C9 /* AddCell.swift in Sources */,
 				80A8CEBB2A25D6C2004A1DF3 /* CustomTabBar.swift in Sources */,
 				80AB41C32A34EAE6002201EC /* DropdownView.swift in Sources */,
 				80A894C82A287FF900C2EB84 /* BikeContentView.swift in Sources */,
@@ -522,7 +511,6 @@
 				80A5BBD42A31F5D100981C55 /* EditRideView.swift in Sources */,
 				80A5D78B2A27794B00421F35 /* EmptyRideView.swift in Sources */,
 				80232F432A310D1500DCB7FA /* EditBikeView.swift in Sources */,
-				80A894D62A28C36500C2EB84 /* CarouselBiveView.swift in Sources */,
 				80A894C62A2874EF00C2EB84 /* BikesView.swift in Sources */,
 				80A894CF2A28ACAC00C2EB84 /* CarouselColorItemView.swift in Sources */,
 				80A894CC2A28A46900C2EB84 /* AddBikeView.swift in Sources */,

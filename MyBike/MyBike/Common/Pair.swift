@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Hashable Tuple - used for DropdownView
 struct Pair: Hashable {
     var id: UUID?
     var name: String?

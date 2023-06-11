@@ -16,12 +16,11 @@ struct CustomTabBar: View {
         UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance.init(idiom: .unspecified)
         UITabBar.appearance().backgroundColor = UIColor(Color("appCloudBurst"))
         
+        // Used to set the tab bar background to clear so we can add a custom color
         let appearance = UITabBarAppearance()
         appearance.configureWithTransparentBackground()
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
-        
-        
     }
     
     var body: some View {
@@ -73,6 +72,5 @@ struct CustomTabBar: View {
 struct CustomTabBar_Previews: PreviewProvider {
     static var previews: some View {
         CustomTabBar()
-        
     }
 }
